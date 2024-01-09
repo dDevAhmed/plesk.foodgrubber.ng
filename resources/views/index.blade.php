@@ -34,7 +34,7 @@
     <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/flaticon/font/flaticon.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
@@ -81,7 +81,7 @@
                         <img src="covers/cover-img-1.jpg" width= "100%" alt="Image">
                     </div>
                     <div class="carousel-text">
-                        <h1>Skip the stores, <br><span>unlock </span> smiles</h1>
+                        <h1>Skip the stores, <br><span>unlock </span> smiles.</h1>
                         <p>Say goodbye to grocery woes, hello to delicious discoveries. Freshness guaranteed, smiles
                             unlocked.</p>
                     </div>
@@ -91,7 +91,7 @@
                         <img src="covers/cover-img-2.jpg" width= "100%" alt="Image">
                     </div>
                     <div class="carousel-text">
-                        <h1><span>Fresh </span>Delivered, <br> Groceries Simplified</h1>
+                        <h1><span>Fresh </span>Delivered, <br> Groceries Simplified.</h1>
                         <p>
                             Forget the drama, unlock fresh flavors. Foodgrubber: Grocery smiles, delivered daily.</p>
                     </div>
@@ -109,12 +109,12 @@
                     </div>
                 </div>
             </div>
-            <div class="box">
-                {{-- <i class="fa fa-map-marker" aria-hidden="true"></i> --}}
-                <input type="text" id="search" name="" placeholder="Enter to search here...">
+            {{-- <div class="box"> --}}
+            {{-- <input type="text" id="search" name="" placeholder="Enter to search here...">
                 <i class="fa fa-search" aria-hidden="true"></i>
-                <div id="search-results"></div>
-            </div>
+                <div id="search-results"></div> --}}
+            {{-- </div> --}}
+            @livewire('Livesearch')
         </div>
     </div>
     <!-- Carousel End -->
@@ -421,7 +421,8 @@
                             <div class="footer-newsletter">
                                 <h2>Newsletter</h2>
                                 <p>
-                                    Are you a food lover always on the lookout for exciting culinary experiences? Look no
+                                    Are you a food lover always on the lookout for exciting culinary experiences? Look
+                                    no
                                     further! Sign up for our newsletter and embark on a delectable journey filled with
                                     mouthwatering recipes, insider tips, and exclusive offers.
                                 </p>
@@ -444,7 +445,7 @@
     <!-- Footer End -->
 
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-    
+
     @push('script')
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>

@@ -2151,6 +2151,40 @@ a:focus {
 /******      index      ******/
 /*******************************/
 
+.search-results {
+    background: #fff;
+    border-radius: 30px;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    padding-top: 55px;
+    padding-bottom: 10px;
+    z-index: -1;
+}
+
+.search-list{
+    list-style-type: none;
+    position: relative;
+    left: -20px;
+}
+
+.search-list-item{
+    margin: 5px 2px;
+    color: #454545;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.search-list-item:hover{
+    background: rgba(0, 0, 0, 0.3);
+}
+
+
 .values .card {
     position: relative;
     width: 100%;
