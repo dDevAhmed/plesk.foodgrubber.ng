@@ -63,7 +63,7 @@
                             href="#">{{ __('How It Works') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="btn custom-btn"><i class="fa fa-shopping-cart"></i>
+                        <a href="{{ route('market.index') }}" class="btn custom-btn"><i class="fa fa-shopping-cart"></i>
                             {{ __('Shop Now') }}</a>
                     </li>
                 </div>

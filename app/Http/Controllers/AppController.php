@@ -8,10 +8,6 @@ class AppController extends Controller
 {
     public function index()
     {
-        return view('index',);
-    }
-    public function market()
-    {
-        return view('market');
+        return view('index');
     }
 }
