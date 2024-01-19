@@ -1120,6 +1120,8 @@
     <!-- Main JS File -->
     <script src="{{ asset('vendors/molla/assets/js/main.js') }}"></script>
     <script src="{{ asset('vendors/molla/assets/js/demos/demo-13.js') }}"></script>
+
+    @stack('script');
 </body>
 
 </html>

@@ -315,7 +315,8 @@
                                         <a href="{{ url('product/' . $product->id) }}">
                                             {{-- <img src="http://foodpartners.foodgrubber.ng/products/{{ $product->image1 }}" alt="Product image" class="product-image"> --}}
                                             {{-- <img src="{{ $product->image1 }} ? '../../foodpartners.foodgrubber.ng/public/img/products/{{ $product->image1 }}' : '../../foodpartners.foodgrubber.ng/public/img/products/no-product-image.png'" --}}
-                                            <img src="{{ $product->image1 ? asset('market/' . $product->image1) : asset('market/no-product-image.png') }}" alt="Product image" class="product-image"
+                                            <img src="{{ $product->image1 ? asset('market/' . $product->image1) : asset('market/no-product-image.png') }}"
+                                                alt="Product image" class="product-image"
                                                 style="width: 100%; height: auto; object-fit: cover;">
                                         </a>
 
@@ -351,7 +352,8 @@
                                         <div class="product-price">
                                             &#8358;{{ $product->price }}
                                         </div>
-                                        <button type="submit" class="btn-product btn-cart" style="margin: auto"><span>add to cart</span></button>
+                                        <button type="submit" class="btn-product btn-cart"
+                                            style="margin: auto"><span>add to cart</span></button>
                                     </div>
                                 </div>
                             </div><!-- End .col-sm-6 col-md-4 col-lg-3 col-xl-2 -->
@@ -427,31 +429,31 @@
                 }
             }'>
                 <a href="#" class="brand">
-                    <img src="vendors/molla/assets/images/brands/1.png" alt="Brand Name">
+                    <img src="{{ asset('vendors/molla/assets/images/brands/1.png') }}" alt="Brand Name">
                 </a>
 
                 <a href="#" class="brand">
-                    <img src="vendors/molla/assets/images/brands/2.png" alt="Brand Name">
+                    <img src="{{ asset('vendors/molla/assets/images/brands/2.png') }}" alt="Brand Name">
                 </a>
 
                 <a href="#" class="brand">
-                    <img src="vendors/molla/assets/images/brands/3.png" alt="Brand Name">
+                    <img src="{{ asset('vendors/molla/assets/images/brands/3.png') }}" alt="Brand Name">
                 </a>
 
                 <a href="#" class="brand">
-                    <img src="vendors/molla/assets/images/brands/4.png" alt="Brand Name">
+                    <img src="{{ asset('vendors/molla/assets/images/brands/4.png') }}" alt="Brand Name">
                 </a>
 
                 <a href="#" class="brand">
-                    <img src="vendors/molla/assets/images/brands/5.png" alt="Brand Name">
+                    <img src="{{ asset('vendors/molla/assets/images/brands/5.png') }}" alt="Brand Name">
                 </a>
 
                 <a href="#" class="brand">
-                    <img src="vendors/molla/assets/images/brands/6.png" alt="Brand Name">
+                    <img src="{{ asset('vendors/molla/assets/images/brands/6.png') }}" alt="Brand Name">
                 </a>
 
                 <a href="#" class="brand">
-                    <img src="vendors/molla/assets/images/brands/7.png" alt="Brand Name">
+                    <img src="{{ asset('vendors/molla/assets/images/brands/7.png') }}" alt="Brand Name">
                 </a>
             </div><!-- End .owl-carousel -->
         </div><!-- End .container -->
