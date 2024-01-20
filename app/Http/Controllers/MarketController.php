@@ -20,6 +20,10 @@ class MarketController extends Controller
         return view('market.product', ['product_id' => $id]);
     }
 
+    public function result(){
+        return view('market.result');
+    }
+
     public function account()
     {
         // Logic to handle individual product pages

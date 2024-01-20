@@ -145,7 +145,7 @@
                     <a href="category.html" class="cat-block">
                         <figure>
                             <span>
-                                <img src="market/categoriespoultry.jpg" alt="Category image">
+                                <img src="market/categories/poultry.jpg" alt="Category image">
                             </span>
                         </figure>
 
@@ -154,7 +154,7 @@
                     <a href="category.html" class="cat-block">
                         <figure>
                             <span>
-                                <img src="market/categoriesfruit.jpg" alt="Category image">
+                                <img src="market/categories/fruit.jpg" alt="Category image">
                             </span>
                         </figure>
 
@@ -163,7 +163,7 @@
                     <a href="category.html" class="cat-block">
                         <figure>
                             <span>
-                                <img src="market/categoriesgrain.jpg" alt="Category image">
+                                <img src="market/categories/grain.jpg" alt="Category image">
                             </span>
                         </figure>
 
@@ -172,7 +172,7 @@
                     <a href="category.html" class="cat-block">
                         <figure>
                             <span>
-                                <img src="market/categoriesspice.jpg" alt="Category image">
+                                <img src="market/categories/spice.jpg" alt="Category image">
                             </span>
                         </figure>
 
@@ -181,7 +181,7 @@
                     <a href="category.html" class="cat-block">
                         <figure>
                             <span>
-                                <img src="market/categoriesseasoning.jpg" alt="Category image">
+                                <img src="market/categories/seasoning.jpg" alt="Category image">
                             </span>
                         </figure>
 
@@ -190,7 +190,7 @@
                     <a href="category.html" class="cat-block">
                         <figure>
                             <span>
-                                <img src="market/categoriesoil.jpg" alt="Category image">
+                                <img src="market/categories/oil.jpg" alt="Category image">
                             </span>
                         </figure>
 
@@ -199,7 +199,7 @@
                     <a href="category.html" class="cat-block">
                         <figure>
                             <span>
-                                <img src="market/categoriesdairy.jpg" alt="Category image">
+                                <img src="market/categories/dairy.jpg" alt="Category image">
                             </span>
                         </figure>
 
@@ -208,7 +208,7 @@
                     <a href="category.html" class="cat-block">
                         <figure>
                             <span>
-                                <img src="market/categoriesvegetable.jpg" alt="Category image">
+                                <img src="market/categories/vegetable.jpg" alt="Category image">
                             </span>
                         </figure>
 
@@ -217,7 +217,7 @@
                     <a href="category.html" class="cat-block">
                         <figure>
                             <span>
-                                <img src="market/categorieslegume.jpg" alt="Category image">
+                                <img src="market/categories/legume.jpg" alt="Category image">
                             </span>
                         </figure>
 
@@ -226,7 +226,7 @@
                     <a href="category.html" class="cat-block">
                         <figure>
                             <span>
-                                <img src="market/categoriesseafood.jpg" alt="Category image">
+                                <img src="market/categories/seafood.jpg" alt="Category image">
                             </span>
                         </figure>
 
@@ -235,7 +235,7 @@
                     <a href="category.html" class="cat-block">
                         <figure>
                             <span>
-                                <img src="market/categoriesbeverage.jpg" alt="Category image">
+                                <img src="market/categories/beverage.jpg" alt="Category image">
                             </span>
                         </figure>
 
@@ -244,7 +244,7 @@
                     <a href="category.html" class="cat-block">
                         <figure>
                             <span>
-                                <img src="market/categoriestuber.jpg" alt="Category image">
+                                <img src="market/categories/tuber.jpg" alt="Category image">
                             </span>
                         </figure>
 
@@ -341,7 +341,7 @@
                                     <div class="product-body">
                                         <p class="product-subtitle">
                                             <a
-                                                href="{{ url('search?category=' . $product->category) }}">({{ $product->category }})</a>
+                                                href="{{ url('result?category=' . $product->category) }}">({{ $product->category }})</a>
                                         </p>
                                         <h3 class="product-title">
                                             <a href="{{ url('product/' . $product->id) }}">{{ $product->name }}</a>

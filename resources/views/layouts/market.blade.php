@@ -23,7 +23,7 @@
     <meta name="msapplication-config" content="assets/images/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css"> --}}
-    <!-- Plugins CSS File -->
+    {{-- <!-- Plugins CSS File -->
     <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/plugins/owl-carousel/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/plugins/magnific-popup/magnific-popup.css') }}">
@@ -33,7 +33,18 @@
     <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/skins/skin-demo-13.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/demos/demo-13.css') }}">
     <!--Custom Css-->
-    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/custom.css') }}"> --}}
+
+    <link rel="stylesheet" href="vendors/molla/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendors/molla/assets/css/plugins/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="vendors/molla/assets/css/plugins/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="vendors/molla/assets/css/plugins/jquery.countdown.css">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="vendors/molla/assets/css/style.css">
+    <link rel="stylesheet" href="vendors/molla/assets/css/skins/skin-demo-13.css">
+    <link rel="stylesheet" href="vendors/molla/assets/css/demos/demo-13.css">
+    <!--Custom Css-->
+    <link rel="stylesheet" href="vendors/molla/assets/css/custom.css">
 </head>
 
 <body>
@@ -84,7 +95,7 @@
                 </div><!-- End .container -->
             </div><!-- End .header-top -->
 
-            <div class="header-middle sticky-header ">
+            <div class="header-middle sticky-header">
                 <div class="container">
                     <div class="header-left">
                         <button class="mobile-menu-toggler">
@@ -221,14 +232,14 @@
                                     <span class="cart-txt">Account</span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right">
+                                <div class="dropdown-menu dropdown-menu-right" style="width:150px !important;">
                                     <ul class="compare-products">
-                                        <li class="">
-                                            <a href="/profile" class="">Profile</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="#" class="">Sign Out</a>
-                                        </li>
+                                        {{-- <li class=""> --}}
+                                            <a href="{{route('customer.account')}}" class="d-block mb-1">Profile</a>
+                                        {{-- </li> --}}
+                                        {{-- <li class=""> --}}
+                                            <a href="#" class="d-block">Sign Out</a>
+                                        {{-- </li> --}}
                                     </ul>
                                 </div><!-- End .dropdown-menu -->
                             </div><!-- End .user-profile-dropdown -->
@@ -546,12 +557,18 @@
                         </div><!-- End .category-dropdown -->
                     </div> --}}
                     <!-- End .col-lg-3 -->
-                    <div class="header-center">
+                    <div class="header-left">
                         <nav class="main-nav">
-                            <a href="/" class="sf-with-ul text-white">
-                                {{-- todo - style with border bottom --}}
+                            <a href="{{route('foodgrubber.index')}}" class="sf-with-ul text-white">
+                                {{-- fixme - style with border bottom at active state --}}
                                 {{-- <i class="icon-home"></i> --}}
                                 Home
+                            </a>
+                            <span class="text-white m-3">|</span>
+                            <a href="{{route('market.index')}}" class="sf-with-ul text-white">
+                                {{-- fixme - style with border bottom --}}
+                                {{-- <i class="icon-home"></i> --}}
+                                Market
                             </a>
                         </nav><!-- End .main-nav -->
                     </div><!-- End .col-lg-9 -->
@@ -1106,12 +1123,12 @@
         </div>
     </div> --}}
     <!-- Plugins JS File -->
-    <script src="{{ asset('vendors/molla/assets/js/jquery.min.js"') }}"></script>
+    {{-- <script src="{{ asset('vendors/molla/assets/js/jquery.min.js"') }}"></script>
     <script src="{{ asset('vendors/molla/assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('vendors/molla/assets/js/jquery.hoverIntent.min.js') }}"></script>
     <script src="{{ asset('vendors/molla/assets/js/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('vendors/molla/assets/js/superfish.min.js') }}"></script>
-    <script src="{{ asset('vendors/molla/assets/js/owl.carousel.min.js') }}"></script>
+    <script src="vendors/molla/assets/js/owl.carousel.min.js"></script>
     <script src="{{ asset('vendors/molla/assets/js/bootstrap-input-spinner.js') }}"></script>
     <script src="{{ asset('vendors/molla/assets/js/jquery.magnific-popup.min') }}.js"></script>
     <script src="{{ asset('vendors/molla/assets/js/jquery.plugin.min.js') }}"></script>
@@ -1119,9 +1136,24 @@
 
     <!-- Main JS File -->
     <script src="{{ asset('vendors/molla/assets/js/main.js') }}"></script>
-    <script src="{{ asset('vendors/molla/assets/js/demos/demo-13.js') }}"></script>
+    <script src="{{ asset('vendors/molla/assets/js/demos/demo-13.js') }}"></script> --}}
 
-    @stack('script');
+    <script src="vendors/molla/assets/js/jquery.min.js"></script>
+    <script src="vendors/molla/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="vendors/molla/assets/js/jquery.hoverIntent.min.js"></script>
+    <script src="vendors/molla/assets/js/jquery.waypoints.min.js"></script>
+    <script src="vendors/molla/assets/js/superfish.min.js"></script>
+    <script src="vendors/molla/assets/js/owl.carousel.min.js"></script>
+    <script src="vendors/molla/assets/js/bootstrap-input-spinner.js"></script>
+    <script src="vendors/molla/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="vendors/molla/assets/js/jquery.plugin.min.js"></script>
+    <script src="vendors/molla/assets/js/jquery.countdown.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="vendors/molla/assets/js/main.js"></script>
+    <script src="vendors/molla/assets/js/demos/demo-13.js"></script>
+
+    {{-- @stack('script'); --}}
 </body>
 
 </html>
