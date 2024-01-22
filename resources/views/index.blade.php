@@ -63,7 +63,8 @@
                             href="#">{{ __('How It Works') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('market.index') }}" class="btn custom-btn"><i class="fa fa-shopping-cart"></i>
+                        <a href="{{ route('market.index') }}" class="btn custom-btn"><i
+                                class="fa fa-shopping-cart"></i>
                             {{ __('Shop Now') }}</a>
                     </li>
                 </div>
@@ -215,34 +216,28 @@
             </div>
             <div class="row align-items-center">
                 <div class="col-md-4 mb-5">
-                    <a href="#">
-                        <div class="image-container cuisine hover-translate">
-                            <img src="{{ asset('img/african-cuisine.jpg') }}" alt="African Cuisine">
-                            <div class="overlay">
-                                <div class="food-name">African Cuisine</div>
-                            </div>
+                    <div class="image-container cuisine hover-translate">
+                        <img src="{{ asset('img/african-cuisine.jpg') }}" alt="African Cuisine">
+                        <div class="overlay">
+                            <div class="food-name">African Cuisine</div>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 <div class="col-md-4 mb-5">
-                    <a href="#">
-                        <div class="image-container cuisine hover-translate">
-                            <img src="{{ asset('img/indian-cuisine.jpg') }}" alt="African Cuisine">
-                            <div class="overlay">
-                                <div class="food-name">Indian Cuisine</div>
-                            </div>
+                    <div class="image-container cuisine hover-translate">
+                        <img src="{{ asset('img/indian-cuisine.jpg') }}" alt="African Cuisine">
+                        <div class="overlay">
+                            <div class="food-name">Indian Cuisine</div>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 <div class="col-md-4 mb-5">
-                    <a href="#">
-                        <div class="image-container cuisine hover-translate">
-                            <img src="{{ asset('img/chinese-cuisine.jpg') }}" alt="African Cuisine">
-                            <div class="overlay">
-                                <div class="food-name">Chinese Cuisine</div>
-                            </div>
+                    <div class="image-container cuisine hover-translate">
+                        <img src="{{ asset('img/chinese-cuisine.jpg') }}" alt="African Cuisine">
+                        <div class="overlay">
+                            <div class="food-name">Chinese Cuisine</div>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -274,8 +269,8 @@
                                             more heavy bags, endless lists, or wasted time.</p>
                                     </div>
                                     <div class="d-flex mobile-store">
-                                        <a href="#"><img src="img/play-store.png" alt="play store button"></a>
-                                        <a href="#"><img src="img/app-store.png" alt="app store button"></a>
+                                        <a href="javascript:void(0)"><img src="img/play-store.png" alt="play store button"></a>
+                                        <a href="javascript:void(0)"><img src="img/app-store.png" alt="app store button"></a>
                                     </div>
                                 </div>
                             </div>
@@ -297,50 +292,39 @@
             <div class="owl-carousel testimonials-carousel">
                 <div class="testimonial-item">
                     <div class="testimonial-img">
-                        <img src="img/testimonial-1.jpg" alt="Image">
+                        <img src="img/default_testimonial.jpg" alt="Image">
                     </div>
                     <p>
-                        "Working with FoodGrub has been a game-changer for my culinary career. Their platform provided
-                        me
-                        with a wider audience and the opportunity to showcase my skills to food enthusiasts across the
-                        globe."</p>
-                    <h2>Chef Emily Lawson </h2>
-                    <h3>Executive Chef</h3>
+                        "Ditch the store, embrace the feast! FoodGrubber brought fresh local goodies and easy meal inspo right to my door. Now grocery shopping is bliss, not a chore. Plus, those secret savings? Mom win!"</p>
+                    <h2>Sarah M. </h2>
+                    <h3>Busy Mom of 2</h3>
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-img">
-                        <img src="img/testimonial-2.jpg" alt="Image">
+                        <img src="img/default_testimonial.jpg" alt="Image">
                     </div>
                     <p>
-                        "FoodGrub has been a sweet revelation for my pastry creations. Through their platform, I was
-                        able to
-                        connect with dessert lovers who appreciate the artistry and flavors I bring to the table." </p>
-                    <h2>Chef Daniel Carter</h2>
-                    <h3>Pastry Chef</h3>
+                        "FoodGrubber's not just delivery, it's a party starter! They brought the crowds, streamlined my orders, and even helped craft the perfect pizza menu. My Nonna would be proud!" </p>
+                    <h2>Maria C.</h2>
+                    <h3>Mama Mia's Pizzeria owner</h3>
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-img">
-                        <img src="img/testimonial-3.jpg" alt="Image">
+                        <img src="img/default_testimonial.jpg" alt="Image">
                     </div>
                     <p>
-                        "FoodGrub has been a platform where my sushi expertise found its perfect match. The dedicated
-                        community of sushi enthusiasts on FoodGrub appreciates the precision and artistry that goes into
-                        each roll." </p>
-                    <h2>Chef Mia Roberts</h2>
-                    <h3>Sushi Chef</h3>
+                        "FoodGrubber? More like flavor upgrader! No more supermarket snooze. Now I get gourmet goodies, delivered fresh. My inner chef is doing a happy dance!" </p>
+                    <h2>John L.</h2>
+                    <h3>Retired Foodie</h3>
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-img">
-                        <img src="img/testimonial-4.jpg" alt="Image">
+                        <img src="img/default_testimonial.jpg" alt="Image">
                     </div>
                     <p>
-                        "FoodGrub has given me the opportunity to showcase my grilling prowess to a wider audience.
-                        Their
-                        platform allowed me to share my secret techniques, signature marinades, and mouthwatering
-                        recipes
-                        with fellow grill enthusiasts" </p>
-                    <h2>Chef Alejandro Cruz</h2>
-                    <h3>Grill Master</h3>
+                        "FoodGrubber gets food! My delicate sushi arrives picture-perfect, thanks to their insulated bags and ninja delivery crew. Happy customers, happy chef. FoodGrubber rocks!" </p>
+                    <h2>Alex T.</h2>
+                    <h3>Zen Garden Sushi Head Chef</h3>
                 </div>
             </div>
         </div>
@@ -372,8 +356,8 @@
                                 deliver directly to hungry customers.<br /><br />Submit your application and become a
                                 Foodgrubber vendor today.</p>
                         </div>
-                        <a href="#" class="btn custom-btn"> {{ __('Apply') }}</a>
-                        {{-- <a href="{{ route('register') }}" class="btn custom-btn"> {{ __('Apply') }}</a> --}}
+                        <a href="#" class="btn custom-btn"> {{ __('Register') }}</a>
+                        {{-- <a href="{{ route('register') }}" class="btn custom-btn"> {{ __('Register') }}</a> --}}
                     </div>
                 </div>
             </div>
@@ -395,22 +379,22 @@
                                 <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
                                 <p><i class="fa fa-envelope"></i>info@example.com</p>
                                 <div class="footer-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-youtube"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
+                                    <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="javascript:void(0)"><i class="fab fa-youtube"></i></a>
+                                    <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
+                                    <a href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="footer-link">
                                 <h2>Quick Links</h2>
-                                <a href="">Terms of use</a>
-                                <a href="">Privacy policy</a>
-                                <a href="">Cookies</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
+                                <a href="javascript:void(0)">Terms of use</a>
+                                <a href="javascript:void(0)">Privacy policy</a>
+                                <a href="javascript:void(0)">Cookies</a>
+                                <a href="javascript:void(0)">Help</a>
+                                <a href="javascript:void(0)">FAQs</a>
                             </div>
                         </div>
                     </div>
@@ -421,14 +405,10 @@
                             <div class="footer-newsletter">
                                 <h2>Newsletter</h2>
                                 <p>
-                                    Are you a food lover always on the lookout for exciting culinary experiences? Look
-                                    no
-                                    further! Sign up for our newsletter and embark on a delectable journey filled with
-                                    mouthwatering recipes, insider tips, and exclusive offers.
+                                    Skip supermarket stress!  FoodGrubber delivers fresh local groceries & secret savings to your door. Level up your kitchen with our newsletter - recipes, tips & more!
                                 </p>
                                 <div class="form">
-                                    <input class="form-control" placeholder="Email goes here">
-                                    <button class="btn custom-btn">Submit</button>
+                                    @livewire('subscribe-form')
                                 </div>
                             </div>
                         </div>
@@ -438,7 +418,7 @@
         </div>
         <div class="copyright">
             <div class="container">
-                <p>Copyright &copy; <a href="#">Binfo Group</a>, All Right Reserved.</p>
+                <p>Copyright &copy; <a href="https://binfogroup.com/" target="_blank">Binfo Group</a>, All Right Reserved.</p>
             </div>
         </div>
     </div>
@@ -448,32 +428,6 @@
 
     @push('script')
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                // $('#search').on('input', function() {
-                //     var query = $(this).val();
-                //     if (query != '') {
-                //         $.ajax({
-                //             url: "api/search", // replace with your search endpoint
-                //             method: "GET",
-                //             data: {
-                //                 query: query
-                //             },
-                //             success: function(data) {
-                //                 var html = '';
-                //                 for (var i = 0; i < data.length; i++) {
-                //                     html += '<div>' + data[i].name +
-                //                         '</div>'; // replace with the HTML structure you want
-                //                 }
-                //                 $('#search-results').html(html);
-                //             }
-                //         });
-                //     } else {
-                //         $('#search-results').html('');
-                //     }
-                // });
-            });
-        </script>
     @endpush
 
     <!-- JavaScript Libraries -->
@@ -492,7 +446,7 @@
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
 
-    @stack('script');
+    @stack('script')
 </body>
 
 </html>

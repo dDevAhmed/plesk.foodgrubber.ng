@@ -24,8 +24,8 @@ Route::get('/', [AppController::class, 'index'])->name('foodgrubber.index');
 
 // no need for auth routes
 // Route::get('search/{query}', [MarketController::class, 'index'])->name('market.index');    
-Route::get('/home', [MarketController::class, 'index'])->name('market.index');    
-Route::get('/result', [MarketController::class, 'result'])->name('market.result');    
+Route::get('/marketplace', [MarketController::class, 'market'])->name('market.index');    
+Route::get('/search', [MarketController::class, 'search'])->name('market.search');    
 Route::get('/product/{id}', [MarketController::class, 'product'])->name('market.products.product');  
 
 // routes that need auth and verification

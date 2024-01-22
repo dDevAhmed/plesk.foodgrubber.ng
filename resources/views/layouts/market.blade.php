@@ -50,7 +50,7 @@
 <body>
     <div class="page-wrapper">
         <header class="header header-10 header-intro-clearance">
-            <div class="header-top">
+            <div class="header-top p-2">
                 <div class="container">
                     <div class="header-left">
                         <a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a>
@@ -62,31 +62,11 @@
                             <li>
                                 <a href="#">Links</a>
                                 <ul>
-                                    <li>
-                                        <div class="header-dropdown">
-                                            <a href="#">USD</a>
-                                            <div class="header-menu">
-                                                <ul>
-                                                    <li><a href="#">Eur</a></li>
-                                                    <li><a href="#">Usd</a></li>
-                                                </ul>
-                                            </div><!-- End .header-menu -->
-                                        </div><!-- End .header-dropdown -->
-                                    </li>
-                                    <li>
-                                        <div class="header-dropdown">
-                                            <a href="#">Engligh</a>
-                                            <div class="header-menu">
-                                                <ul>
-                                                    <li><a href="#">English</a></li>
-                                                    <li><a href="#">French</a></li>
-                                                    <li><a href="#">Spanish</a></li>
-                                                </ul>
-                                            </div><!-- End .header-menu -->
-                                        </div><!-- End .header-dropdown -->
+                                    <li class="login">
+                                        <a href="#signin-modal" data-toggle="modal">Log In</a>
                                     </li>
                                     <li class="login">
-                                        <a href="#signin-modal" data-toggle="modal">Sign in / Sign up</a>
+                                        <a href="#signin-modal" data-toggle="modal">Register</a>
                                     </li>
                                 </ul>
                             </li>
@@ -104,8 +84,8 @@
                         </button>
 
                         <a href="index.html" class="logo">
-                            <img src="{{asset('vendors/molla/assets/images/demos/demo-13/logo.png')}}" alt="Molla Logo" width="105"
-                                height="25">
+                            <img src="{{ asset('vendors/molla/assets/images/demos/demo-13/logo.png') }}"
+                                alt="Molla Logo" width="105" height="25">
                         </a>
                     </div><!-- End .header-left -->
 
@@ -121,20 +101,9 @@
                                             {{-- <option value="1">- African</option>
                                             <option value="2">- Indian</option>
                                             <option value="3">- Chinese</option> --}}
-                                            {{-- fixme - fetch from admin database --}}
-                                            <option value="">All categories</option>
-                                            <option value="beverage">Beverage</option>
-                                            <option value="diary">Diary</option>
-                                            <option value="eggs">Eggs</option>
-                                            <option value="fruits">Fruits</option>
-                                            <option value="grains">Grains</option>
-                                            <option value="legumes">Legumes</option>
-                                            <option value="poultry">Poultry</option>
-                                            <option value="seafoods">Seafoods</option>
-                                            <option value="seasonings">Seasonings</option>
-                                            <option value="spices">Spices</option>
-                                            <option value="tubers">Tubers</option>
-                                            <option value="vegetables">Vegetables</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category }}">{{ $category }}</option>
+                                            @endforeach
                                         </select>
                                     </div><!-- End .select-custom -->
                                     <label for="q" class="sr-only">Search</label>
@@ -178,7 +147,7 @@
 
                                             <figure class="product-image-container">
                                                 <a href="product.html" class="product-image">
-                                                    <img src="{{asset('vendors/molla/assets/images/products/cart/product-1.jpg')}}"
+                                                    <img src="{{ asset('vendors/molla/assets/images/products/cart/product-1.jpg') }}"
                                                         alt="product">
                                                 </a>
                                             </figure>
@@ -200,7 +169,51 @@
 
                                             <figure class="product-image-container">
                                                 <a href="product.html" class="product-image">
-                                                    <img src="{{asset('vendors/molla/assets/images/products/cart/product-2.jpg')}}"
+                                                    <img src="{{ asset('vendors/molla/assets/images/products/cart/product-2.jpg') }}"
+                                                        alt="product">
+                                                </a>
+                                            </figure>
+                                            <a href="#" class="btn-remove" title="Remove Product"><i
+                                                    class="icon-close"></i></a>
+                                        </div><!-- End .product -->
+                                        
+                                        <div class="product">
+                                            <div class="product-cart-details">
+                                                <h4 class="product-title">
+                                                    <a href="product.html">Beige knitted elastic runner shoes</a>
+                                                </h4>
+
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span>
+                                                    x $84.00
+                                                </span>
+                                            </div><!-- End .product-cart-details -->
+
+                                            <figure class="product-image-container">
+                                                <a href="product.html" class="product-image">
+                                                    <img src="{{ asset('vendors/molla/assets/images/products/cart/product-1.jpg') }}"
+                                                        alt="product">
+                                                </a>
+                                            </figure>
+                                            <a href="#" class="btn-remove" title="Remove Product"><i
+                                                    class="icon-close"></i></a>
+                                        </div><!-- End .product -->
+
+                                        <div class="product">
+                                            <div class="product-cart-details">
+                                                <h4 class="product-title">
+                                                    <a href="product.html">Blue utility pinafore denim dress</a>
+                                                </h4>
+
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span>
+                                                    x $76.00
+                                                </span>
+                                            </div><!-- End .product-cart-details -->
+
+                                            <figure class="product-image-container">
+                                                <a href="product.html" class="product-image">
+                                                    <img src="{{ asset('vendors/molla/assets/images/products/cart/product-2.jpg') }}"
                                                         alt="product">
                                                 </a>
                                             </figure>
@@ -224,25 +237,24 @@
                                 </div><!-- End .dropdown-menu -->
                             </div><!-- End .cart-dropdown -->
 
-                            <div class="dropdown compare-dropdown">
-                                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false" data-display="static"
-                                    title="Compare Products" aria-label="Compare Products">
-                                    <i class="icon-user"></i>
-                                    <span class="cart-txt">Account</span>
-                                </a>
+                            @if (Auth::user())
+                                <div class="dropdown compare-dropdown">
+                                    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" data-display="static"
+                                        title="Compare Products" aria-label="Compare Products">
+                                        <i class="icon-user"></i>
+                                        <span class="cart-txt">Account</span>
+                                    </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" style="width:150px !important;">
-                                    <ul class="compare-products">
-                                        {{-- <li class=""> --}}
-                                            <a href="{{route('customer.account')}}" class="d-block mb-1">Profile</a>
-                                        {{-- </li> --}}
-                                        {{-- <li class=""> --}}
+                                    <div class="dropdown-menu dropdown-menu-right" style="width:150px !important;">
+                                        <ul class="compare-products">
+                                            <a href="{{ route('customer.account') }}" class="d-block mb-1">Profile</a>
                                             <a href="#" class="d-block">Sign Out</a>
-                                        {{-- </li> --}}
-                                    </ul>
-                                </div><!-- End .dropdown-menu -->
-                            </div><!-- End .user-profile-dropdown -->
+                                            {{-- <i class="icon-user"></i> --}}
+                                        </ul>
+                                    </div><!-- End .dropdown-menu -->
+                                </div><!-- End .user-profile-dropdown -->
+                            @endif
                         </div>
                     </div><!-- End .header-right -->
                 </div><!-- End .container -->
@@ -559,13 +571,13 @@
                     <!-- End .col-lg-3 -->
                     <div class="header-left">
                         <nav class="main-nav">
-                            <a href="{{route('foodgrubber.index')}}" class="sf-with-ul text-white">
+                            <a href="{{ route('foodgrubber.index') }}" class="sf-with-ul text-white">
                                 {{-- fixme - style with border bottom at active state --}}
                                 {{-- <i class="icon-home"></i> --}}
                                 Home
                             </a>
                             <span class="text-white m-3">|</span>
-                            <a href="{{route('market.index')}}" class="sf-with-ul text-white">
+                            <a href="{{ route('market.index') }}" class="sf-with-ul text-white">
                                 {{-- fixme - style with border bottom --}}
                                 {{-- <i class="icon-home"></i> --}}
                                 Market
@@ -647,8 +659,8 @@
                     <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="widget widget-about">
-                                <img src="{{asset('vendors/molla/assets/images/demos/demo-13/logo-footer.png')}}" class="footer-logo"
-                                    alt="Footer Logo" width="105" height="25">
+                                <img src="{{ asset('vendors/molla/assets/images/demos/demo-13/logo-footer.png') }}"
+                                    class="footer-logo" alt="Footer Logo" width="105" height="25">
                                 <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate
                                     magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan
                                     porttitor, facilisis luctus, metus. </p>
@@ -662,8 +674,8 @@
                                         <div class="col-sm-6 col-md-8">
                                             <span class="widget-about-title">Payment Method</span>
                                             <figure class="footer-payments">
-                                                <img src="{{asset('vendors/molla/assets/images/payments.png')}}" alt="Payment methods"
-                                                    width="272" height="20">
+                                                <img src="{{ asset('vendors/molla/assets/images/payments.png') }}"
+                                                    alt="Payment methods" width="272" height="20">
                                             </figure><!-- End .footer-payments -->
                                         </div><!-- End .col-sm-6 -->
                                     </div><!-- End .row -->

@@ -6,6 +6,12 @@
     background-color: #39f
 }
 
+:root {
+    --primary-color: #fef301;
+    --secondary-color: #01c324;
+    --tertiary-color: #454545;
+}
+
 .bg-primary {
     background-color: #39f !important
 }

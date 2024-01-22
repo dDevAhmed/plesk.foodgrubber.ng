@@ -267,37 +267,14 @@
                     <div class="heading-right">
                         <div class="toolbox">
                             <div class="toolbox-right">
-                                {{-- <div class="toolbox-sort">
-                                    <label for="sortby">Filter by:</label>
-                                    <div class="select-custom">
-                                        <select name="sortby" id="sortby" class="form-control">
-                                            <option value="" selected="selected">All</option>
-                                            <option value="african">African Cuisine</option>
-                                            <option value="indian">Indian Cuisine</option>
-                                            <option value="chinese">Chinese Cuisine</option>
-                                        </select>
-                                    </div>
-                                </div> --}}
-                                <!-- End .toolbox-sort -->
-                                {{-- <div class="mr-3"></div> --}}
                                 <div class="toolbox-sort">
                                     <label for="sortby">Show Only</label>
                                     <div class="select-custom">
                                         <select name="sortby" id="sortby" class="form-control">
-                                            {{-- fixme - fetch from admin database --}}
                                             <option value="">All categories</option>
-                                            <option value="beverage">Beverage</option>
-                                            <option value="diary">Diary</option>
-                                            <option value="eggs">Eggs</option>
-                                            <option value="fruits">Fruits</option>
-                                            <option value="grains">Grains</option>
-                                            <option value="legumes">Legumes</option>
-                                            <option value="poultry">Poultry</option>
-                                            <option value="seafoods">Seafoods</option>
-                                            <option value="seasonings">Seasonings</option>
-                                            <option value="spices">Spices</option>
-                                            <option value="tubers">Tubers</option>
-                                            <option value="vegetables">Vegetables</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{$category}}">{{$category}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div><!-- End .toolbox-sort -->
@@ -341,7 +318,7 @@
                                     <div class="product-body">
                                         <p class="product-subtitle">
                                             <a
-                                                href="{{ url('result?category=' . $product->category) }}">({{ $product->category }})</a>
+                                                href="{{ url('search?category=' . $product->category) }}">({{ $product->category }})</a>
                                         </p>
                                         <h3 class="product-title">
                                             <a href="{{ url('product/' . $product->id) }}">{{ $product->name }}</a>
