@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800");
 
+:root {
+    --foodgrubber-primary-color: #fef301;
+    --foodgrubber-secondary-color: #01c324;
+    --foodgrubber-tertiary-color: #454545;
+}
+
 .header.header-10.header-intro-clearance .dropdown.category-dropdown .dropdown-toggle {
     padding-left: 2rem;
     color: #fff

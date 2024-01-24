@@ -7,9 +7,9 @@
 }
 
 :root {
-    --primary-color: #fef301;
-    --secondary-color: #01c324;
-    --tertiary-color: #454545;
+    --foodgrubber-primary-color: #fef301;
+    --foodgrubber-secondary-color: #01c324;
+    --foodgrubber-tertiary-color: #454545;
 }
 
 .bg-primary {
