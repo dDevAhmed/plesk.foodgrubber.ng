@@ -84,8 +84,7 @@
                         </button>
 
                         <a href="index.html" class="logo">
-                            <img src="{{ asset('vendors/molla/assets/images/demos/demo-13/logo.png') }}"
-                                alt="Molla Logo" width="105" height="25">
+                            <img src="{{ asset('img/logo.png') }}" alt="Foodgrubber Logo" width="105" height="25">
                         </a>
                     </div><!-- End .header-left -->
 
@@ -93,8 +92,9 @@
                         <div
                             class="header-search header-search-extended header-search-visible header-search-no-radius d-none d-lg-block">
                             <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
-                            <form action="#" method="get">
-                                <div class="header-search-wrapper search-wrapper-wide">
+                            <form action="#" method="get" style="border:none;">
+                                @csrf
+                                <div class="header-search-wrapper search-wrapper-wide" style="border:1px solid var(--foodgrubber-tertiary-color);">
                                     <div class="select-custom">
                                         <select id="category" name="category">
                                             <option value="">All Categories</option>
@@ -109,7 +109,7 @@
                                     <label for="q" class="sr-only">Search</label>
                                     <input type="search" class="form-control" name="q" id="q"
                                         placeholder="Search here ..." required>
-                                    <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+                                    <button class="btn bg-tertiary text-primary" type="submit"><i class="icon-search"></i></button>
                                 </div><!-- End .header-search-wrapper -->
                             </form>
                         </div><!-- End .header-search -->
@@ -119,7 +119,7 @@
                         <div class="header-dropdown-link">
                             <a href="wishlist.html" class="wishlist-link">
                                 <i class="icon-heart-o"></i>
-                                <span class="wishlist-count">3</span>
+                                <span class="wishlist-count bg-primary text-tertiary">3</span>
                                 <span class="wishlist-txt">Wishlist</span>
                             </a>
 
@@ -127,7 +127,7 @@
                                 <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false" data-display="static">
                                     <i class="icon-shopping-cart"></i>
-                                    <span class="cart-count">2</span>
+                                    <span class="cart-count bg-primary text-tertiary">2</span>
                                     <span class="cart-txt">Cart</span>
                                 </a>
 
@@ -176,7 +176,7 @@
                                             <a href="#" class="btn-remove" title="Remove Product"><i
                                                     class="icon-close"></i></a>
                                         </div><!-- End .product -->
-                                        
+
                                         <div class="product">
                                             <div class="product-cart-details">
                                                 <h4 class="product-title">
@@ -229,32 +229,34 @@
                                     </div><!-- End .dropdown-cart-total -->
 
                                     <div class="dropdown-cart-action">
-                                        <a href="cart.html" class="btn btn-primary">View Cart</a>
+                                        <a href="cart.html" class="btn bg-tertiary text-primary">View Cart</a>
                                         <a href="checkout.html"
-                                            class="btn btn-outline-primary-2"><span>Checkout</span><i
+                                            class="btn" style="border: 1px solid var(--foodgrubber-primary-color); color: var(--foodgrubber-tertiary-color);"><span>Checkout</span><i
                                                 class="icon-long-arrow-right"></i></a>
                                     </div><!-- End .dropdown-cart-total -->
                                 </div><!-- End .dropdown-menu -->
                             </div><!-- End .cart-dropdown -->
 
-                            @if (Auth::user())
-                                <div class="dropdown compare-dropdown">
-                                    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" data-display="static"
-                                        title="Compare Products" aria-label="Compare Products">
-                                        <i class="icon-user"></i>
-                                        <span class="cart-txt">Account</span>
-                                    </a>
+                            {{-- fixme - uncomment --}}
+                            {{-- @if (Auth::user()) --}}
+                            <div class="dropdown compare-dropdown">
+                                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false" data-display="static"
+                                    title="Compare Products" aria-label="Compare Products">
+                                    <i class="icon-user"></i>
+                                    <span class="cart-txt">Account</span>
+                                </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" style="width:150px !important;">
-                                        <ul class="compare-products">
-                                            <a href="{{ route('customer.account') }}" class="d-block mb-1">Profile</a>
-                                            <a href="#" class="d-block">Sign Out</a>
-                                            {{-- <i class="icon-user"></i> --}}
-                                        </ul>
-                                    </div><!-- End .dropdown-menu -->
-                                </div><!-- End .user-profile-dropdown -->
-                            @endif
+                                <div class="dropdown-menu dropdown-menu-right" style="width:150px !important;">
+                                    <ul class="compare-products">
+                                        <a href="{{ route('customer.account') }}" class="d-block mb-1">Profile</a>
+                                        <a href="#" class="d-block">Sign Out</a>
+                                        {{-- <i class="icon-user"></i> --}}
+                                    </ul>
+                                </div><!-- End .dropdown-menu -->
+                            </div><!-- End .user-profile-dropdown -->
+                            {{-- fixme - uncomment --}}
+                            {{-- @endif --}}
                         </div>
                     </div><!-- End .header-right -->
                 </div><!-- End .container -->
@@ -578,7 +580,7 @@
                             </a>
                             <span class="text-white m-3">|</span>
                             <a href="{{ route('market.index') }}" class="sf-with-ul text-white">
-                                {{-- fixme - style with border bottom --}}
+                                {{-- fixme - style with border bottom for active state --}}
                                 {{-- <i class="icon-home"></i> --}}
                                 Market
                             </a>
@@ -659,17 +661,15 @@
                     <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="widget widget-about">
-                                <img src="{{ asset('vendors/molla/assets/images/demos/demo-13/logo-footer.png') }}"
-                                    class="footer-logo" alt="Footer Logo" width="105" height="25">
-                                <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate
-                                    magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan
-                                    porttitor, facilisis luctus, metus. </p>
+                                <img src="{{ asset('img/logo.png') }}" class="footer-logo" alt="Footer Logo"
+                                    width="105" height="25">
+                                <p>Foodgrubber is your one-stop shop for fresh groceries delivered. We connect you with local stores, a diverse selection of delicious finds, and a seamless online ordering experience. Ditch the shopping cart, browse from your phone, and enjoy convenient delivery to your doorstep. Save time,eat well, and experience the Foodgrubber difference.. </p>
 
                                 <div class="widget-about-info">
                                     <div class="row">
                                         <div class="col-sm-6 col-md-4">
                                             <span class="widget-about-title">Got Question? Call us 24/7</span>
-                                            <a href="tel:123456789">+0123 456 789</a>
+                                            <a href="tel:123456789" class="text-secondary">+0123 456 789</a>
                                         </div><!-- End .col-sm-6 -->
                                         <div class="col-sm-6 col-md-8">
                                             <span class="widget-about-title">Payment Method</span>

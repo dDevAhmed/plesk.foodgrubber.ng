@@ -685,7 +685,8 @@
                         <div class="sidebar sidebar-shop">
                             <div class="widget widget-clean">
                                 <label>Filters:</label>
-                                <a href="#" class="sidebar-filter-clear">Clean All</a>
+                                <a href="#" class="sidebar-filter-clear text-secondary">Clean All <i
+                                    class="icon-close"></i></a>
                             </div><!-- End .widget widget-clean -->
 
                             <div class="widget widget-collapsible">

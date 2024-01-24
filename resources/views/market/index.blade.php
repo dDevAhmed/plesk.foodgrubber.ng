@@ -299,10 +299,10 @@
 
                                         <div class="product-action-vertical">
                                             <a href="#"
-                                                class="btn-product-icon btn-wishlist btn-expandable"><span>add to
+                                                class="btn-product-icon btn-wishlist btn-expandable bg-primary text-tertiary border-0"><span>add to
                                                     wishlist</span></a>
-                                            <a href="#" class="btn-product-icon btn-quickview"
-                                                title="Quick view"><span>Quick view</span></a>
+                                            {{-- <a href="#" class="btn-product-icon btn-quickview"
+                                                title="Quick view"><span>Quick view</span></a> --}}
                                         </div>
 
                                         {{-- <div class="product-action">
@@ -318,18 +318,18 @@
                                     <div class="product-body">
                                         <p class="product-subtitle">
                                             <a
-                                                href="{{ url('search?category=' . $product->category) }}">({{ $product->category }})</a>
+                                                href="{{ url('search?category=' . $product->category) }}" class="text-secondary">({{ $product->category }})</a>
                                         </p>
-                                        <h3 class="product-title">
-                                            <a href="{{ url('product/' . $product->id) }}">{{ $product->name }}</a>
-                                        </h3>
+                                        <h5 class="">
+                                            <a href="{{ url('product/' . $product->id) }}" class="text-dark">{{ $product->name }}</a>
+                                        </h5>
                                         <p class="product-description">
                                             {{ $product->description ? Str::words($product->description, 5, '...') : 'No product description available' }}
                                         </p>
-                                        <div class="product-price">
+                                        <div class="product-price mt-1 text-dark" style="font-size:15px;">
                                             &#8358;{{ $product->price }}
                                         </div>
-                                        <button type="submit" class="btn-product btn-cart"
+                                        <button type="submit" class="btn-product btn-cart bg-tertiary text-primary border-0 p-3"
                                             style="margin: auto"><span>add to cart</span></button>
                                     </div>
                                 </div>
@@ -367,7 +367,7 @@
                 </div><!-- End .products -->
 
                 <div class="row justify-content-center">
-                    <a href="#" class="btn btn-primary btn-rounded">Load More</a>
+                    <a href="#" class="btn bg-tertiary btn-rounded text-primary">Load More</a>
                 </div><!-- End .btn-wrap -->
             </div><!-- End .container -->
         </div><!-- End .bg-light pt-5 pb-5 -->
@@ -437,11 +437,11 @@
 
         <div class="mb-3"></div><!-- End .mb-3 -->
 
-        <div class="cta cta-horizontal cta-horizontal-box bg-primary">
+        <div class="cta cta-horizontal cta-horizontal-box bg-tertiary">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-2xl-5col">
-                        <h3 class="cta-title text-white">Join Our Newsletter</h3><!-- End .cta-title -->
+                        <h3 class="cta-title text-white">Join Our <span class="text-primary">Newsletter</span></h3><!-- End .cta-title -->
                         <p class="cta-desc text-white">Subcribe to get information about products and coupons</p>
                         <!-- End .cta-desc -->
                     </div><!-- End .col-lg-5 -->

@@ -13,11 +13,15 @@
 }
 
 .bg-primary {
-    background-color: #39f !important
+    background-color: var(--foodgrubber-primary-color) !important
 }
 
 .bg-secondary {
-    background-color: #278bf0 !important
+    background-color: var(--foodgrubber-secondary-color) !important
+}
+
+.bg-tertiary {
+    background-color: var(--foodgrubber-tertiary-color) !important
 }
 
 a {
@@ -34,11 +38,15 @@ a:focus {
 }
 
 .text-primary {
-    color: #39f !important
+    color: var(--foodgrubber-primary-color) !important
 }
 
 .text-secondary {
-    color: #278bf0 !important
+    color: var(--foodgrubber-secondary-color) !important
+}
+
+.text-tertiary {
+    color: var(--foodgrubber-tertiary-color) !important
 }
 
 .alert-primary {
