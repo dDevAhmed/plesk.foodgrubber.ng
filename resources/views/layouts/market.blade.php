@@ -241,36 +241,34 @@
                                 </div><!-- End .dropdown-menu -->
                             </div><!-- End .cart-dropdown -->
 
-                            {{-- fixme - uncomment --}}
-                            {{-- @if (Auth::user()) --}}
-                            <div class="dropdown compare-dropdown">
-                                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false" data-display="static"
-                                    title="Compare Products" aria-label="Compare Products">
-                                    <i class="icon-user"></i>
-                                    <span class="cart-txt">Account</span>
-                                </a>
+                            @if (Auth::user())
+                                <div class="dropdown compare-dropdown">
+                                    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" data-display="static"
+                                        title="Compare Products" aria-label="Compare Products">
+                                        <i class="icon-user"></i>
+                                        <span class="cart-txt">Account</span>
+                                    </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" style="width:150px !important;">
-                                    <ul class="compare-products">
-                                        <a href="{{ route('customer.account') }}" class="d-block mb-1">Profile</a>
+                                    <div class="dropdown-menu dropdown-menu-right" style="width:150px !important;">
+                                        <ul class="compare-products">
+                                            <a href="{{ route('customer.account') }}"
+                                                class="d-block mb-1">Profile</a>
 
-                                        <!-- Authentication -->
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
+                                            <!-- Authentication -->
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
 
-                                            <a href="route('logout')"
-                                                onclick="event.preventDefault();
+                                                <a href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
                                             this.closest('form').submit();"
-                                                class="d-block">Log Out</a>
-                                                {{-- fixme - redirect to marketplace after --}}
-                                        </form>
-                                        {{-- <i class="icon-user"></i> --}}
-                                    </ul>
-                                </div><!-- End .dropdown-menu -->
-                            </div><!-- End .user-profile-dropdown -->
-                            {{-- fixme - uncomment --}}
-                            {{-- @endif --}}
+                                                    class="d-block">Log Out</a>
+                                            </form>
+                                            {{-- <i class="icon-user"></i> --}}
+                                        </ul>
+                                    </div><!-- End .dropdown-menu -->
+                                </div><!-- End .user-profile-dropdown -->
+                            @endif
                         </div>
                     </div><!-- End .header-right -->
                 </div><!-- End .container -->
