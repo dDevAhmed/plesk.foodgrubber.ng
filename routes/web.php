@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\MarketController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,18 +26,21 @@ Route::get('/', [AppController::class, 'index'])->name('foodgrubber.index');
 // no need for auth routes
 // Route::get('search/{query}', [MarketController::class, 'index'])->name('market.index');    
 Route::get('/marketplace', [MarketController::class, 'market'])->name('market.index');    
+Route::get('/contact', [MarketController::class, 'contact'])->name('market.contact');    
 Route::get('/search', [MarketController::class, 'search'])->name('market.search');    
 Route::get('/product/{id}', [MarketController::class, 'product'])->name('market.products.product');  
 
 // routes that need auth and verification
-Route::get('/account', [MarketController::class, 'account'])->name('customer.account');    
-Route::get('/cart', [MarketController::class, 'cart'])->name('customer.cart');    
-Route::get('/checkout', [MarketController::class, 'checkout'])->name('customer.checkout');    
+Route::get('/account', [CustomerController::class, 'account'])->name('customer.account');    
+Route::post('/account', [CustomerController::class, 'updateAccount'])->name('customer.account.update');    
+Route::get('/wishlist', [CustomerController::class, 'wishlist'])->name('customer.wishlist');    
+Route::get('/cart', [CustomerController::class, 'cart'])->name('customer.cart');    
+Route::get('/checkout', [CustomerController::class, 'checkout'])->name('customer.checkout');    
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 require __DIR__.'/auth.php';

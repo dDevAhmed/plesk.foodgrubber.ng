@@ -2,7 +2,6 @@
 
 @section('content')
     <main class="main">
-        <div class="mb-4"></div><!-- End .mb-2 -->
         <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
             <div class="container">
                 <h1 class="page-title">Shopping Cart<span>Shop</span></h1>
@@ -171,56 +170,4 @@
     {{-- show toast if updated successful --}}
     {{-- <x-toast-message :type="session('success') ? 'success' : 'fail'" :message="session('success') ?? session('fail')" /> --}}
 
-    @push('script')
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $('#search').on('input', function() {
-                    var query = $(this).val();
-                    if (query != '') {
-                        $.ajax({
-                            url: "api/search", // replace with your search endpoint
-                            method: "GET",
-                            data: {
-                                query: query
-                            },
-                            success: function(data) {
-                                var html = '';
-                                for (var i = 0; i < data.length; i++) {
-                                    html += '<div>' + data[i].name +
-                                        '</div>'; // replace with the HTML structure you want
-                                }
-                                $('#search-results').html(html);
-                            }
-                        });
-                    } else {
-                        $('#search-results').html('');
-                    }
-                });
-
-                // Use a class selector instead of an ID selector
-                $('.add-to-cart').on('click', function() {
-                    var itemId = $(this).data(
-                    'id'); // Assuming each button has a data-id attribute with the item ID
-
-                    $.ajax({
-                        url: '/add-to-cart',
-                        type: 'POST',
-                        data: {
-                            id: itemId
-                            // Add other data as needed...
-                        },
-                        success: function(response) {
-                            // Handle success...
-                        },
-                        error: function(response) {
-                            if (response.status === 401) {
-                                $('#signin-modal').modal('show');
-                            }
-                        }
-                    });
-                });
-            });
-        </script>
-    @endpush
 @endsection

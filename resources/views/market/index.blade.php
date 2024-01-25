@@ -292,6 +292,7 @@
                                         <a href="{{ url('product/' . $product->id) }}">
                                             {{-- <img src="http://foodpartners.foodgrubber.ng/products/{{ $product->image1 }}" alt="Product image" class="product-image"> --}}
                                             {{-- <img src="{{ $product->image1 }} ? '../../foodpartners.foodgrubber.ng/public/img/products/{{ $product->image1 }}' : '../../foodpartners.foodgrubber.ng/public/img/products/no-product-image.png'" --}}
+                                            {{-- <img src="{{ $product->image1 }} ? 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/{{ $product->image1 }}' : 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/no-product-image.png'" --}}
                                             <img src="{{ $product->image1 ? asset('market/' . $product->image1) : asset('market/no-product-image.png') }}"
                                                 alt="Product image" class="product-image"
                                                 style="width: 100%; height: auto; object-fit: cover;">
@@ -304,15 +305,6 @@
                                             {{-- <a href="#" class="btn-product-icon btn-quickview"
                                                 title="Quick view"><span>Quick view</span></a> --}}
                                         </div>
-
-                                        {{-- <div class="product-action">
-                                            <form action="" method="post">
-                                                @csrf
-                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                <button type="submit" class="btn-product btn-cart"><span>add to
-                                                        cart</span></button>
-                                            </form>
-                                        </div> --}}
                                     </figure>
 
                                     <div class="product-body">
@@ -468,56 +460,4 @@
     {{-- show toast if updated successful --}}
     {{-- <x-toast-message :type="session('success') ? 'success' : 'fail'" :message="session('success') ?? session('fail')" /> --}}
 
-    @push('script')
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $('#search').on('input', function() {
-                    var query = $(this).val();
-                    if (query != '') {
-                        $.ajax({
-                            url: "api/search", // replace with your search endpoint
-                            method: "GET",
-                            data: {
-                                query: query
-                            },
-                            success: function(data) {
-                                var html = '';
-                                for (var i = 0; i < data.length; i++) {
-                                    html += '<div>' + data[i].name +
-                                        '</div>'; // replace with the HTML structure you want
-                                }
-                                $('#search-results').html(html);
-                            }
-                        });
-                    } else {
-                        $('#search-results').html('');
-                    }
-                });
-
-                // Use a class selector instead of an ID selector
-                $('.add-to-cart').on('click', function() {
-                    var itemId = $(this).data(
-                        'id'); // Assuming each button has a data-id attribute with the item ID
-
-                    $.ajax({
-                        url: '/add-to-cart',
-                        type: 'POST',
-                        data: {
-                            id: itemId
-                            // Add other data as needed...
-                        },
-                        success: function(response) {
-                            // Handle success...
-                        },
-                        error: function(response) {
-                            if (response.status === 401) {
-                                $('#signin-modal').modal('show');
-                            }
-                        }
-                    });
-                });
-            });
-        </script>
-    @endpush
 @endsection

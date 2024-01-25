@@ -52,10 +52,17 @@
 
         <main class="main">
 
-            <div class="login-page bg-image pt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17"
-                style="background-image: url('vendors/molla/assets/images/backgrounds/login-bg.jpg')">
+            <div class="login-page bg-image pt-2 pb-2 pt-md-4 pb-md-4 pt-lg-6 pb-lg-6"
+                style="background-image: linear-gradient( 115deg, rgba(58, 58, 58, 0.8), rgba(136, 136, 136, 0.7) ), url('covers/cover-img-1.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                margin: 0;
+                height: 100%;">
                 <div class="container">
                     <div class="form-box">
+                        <img src="{{ asset('img/logo.png') }}" alt="Foodgrubber Logo" width="105" height="25"
+                            class="m-auto mb-2">
                         <div class="form-tab">
                             <ul class="nav nav-pills nav-fill" role="tablist">
                                 <li class="nav-item">
@@ -86,13 +93,18 @@
                                         </div><!-- End .form-group -->
 
                                         <div class="form-footer">
-                                            <button type="submit" class="btn btn-outline-primary-2">
+                                            <button type="submit" class="btn bg-tertiary text-primary">
                                                 <span>LOG IN</span>
                                                 <i class="icon-long-arrow-right"></i>
                                             </button>
 
-                                            <a href="#" class="forgot-link">Forgot Your Password?</a>
+                                            <a href="{{ route('password.request') }}" class="forgot-link">Forgot Your
+                                                Password?</a>
                                         </div><!-- End .form-footer -->
+
+                                        <span class="form-group" style="display:flex; justify-content:center; gap: 3px;">No account?
+                                            <a href="{{ route('register') }}" class="forgot-link text-secondary"> Create One</a>
+                                        </span>
                                     </form>
                                 </div><!-- .End .tab-pane -->
                             </div><!-- End .tab-content -->

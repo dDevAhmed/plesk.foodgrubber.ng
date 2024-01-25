@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Market | Foodgrubber</title>
+    <title>{{ $pageTitle ?? 'Foodgrubber' }}</title>
     <meta content="Food Grubber" name="keywords">
     <meta content="Food Grubber" name="description">
     <!-- Favicon -->
@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="vendors/molla/assets/css/skins/skin-demo-13.css">
     <link rel="stylesheet" href="vendors/molla/assets/css/demos/demo-13.css">
     <!--Custom Css-->
-    <link rel="stylesheet" href="vendors/molla/assets/css/custom.css">
+    {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
 </head>
 
 <body>
@@ -56,22 +56,24 @@
                         <a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a>
                     </div><!-- End .header-left -->
 
-                    <div class="header-right">
+                    @if (!Auth::user())
+                        <div class="header-right">
+                            <ul class="top-menu">
+                                <li>
+                                    <a href="#">Links</a>
+                                    <ul>
+                                        <li class="login">
+                                            <a href="#login-modal" data-toggle="modal">Log In</a>
+                                        </li>
+                                        <li class="login">
+                                            <a href="#register-modal" data-toggle="modal">Register</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul><!-- End .top-menu -->
+                        </div><!-- End .header-right -->
+                    @endif
 
-                        <ul class="top-menu">
-                            <li>
-                                <a href="#">Links</a>
-                                <ul>
-                                    <li class="login">
-                                        <a href="#signin-modal" data-toggle="modal">Log In</a>
-                                    </li>
-                                    <li class="login">
-                                        <a href="#signin-modal" data-toggle="modal">Register</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul><!-- End .top-menu -->
-                    </div><!-- End .header-right -->
                 </div><!-- End .container -->
             </div><!-- End .header-top -->
 
@@ -94,7 +96,8 @@
                             <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
                             <form action="#" method="get" style="border:none;">
                                 @csrf
-                                <div class="header-search-wrapper search-wrapper-wide" style="border:1px solid var(--foodgrubber-tertiary-color);">
+                                <div class="header-search-wrapper search-wrapper-wide"
+                                    style="border:1px solid var(--foodgrubber-tertiary-color);">
                                     <div class="select-custom">
                                         <select id="category" name="category">
                                             <option value="">All Categories</option>
@@ -109,7 +112,8 @@
                                     <label for="q" class="sr-only">Search</label>
                                     <input type="search" class="form-control" name="q" id="q"
                                         placeholder="Search here ..." required>
-                                    <button class="btn bg-tertiary text-primary" type="submit"><i class="icon-search"></i></button>
+                                    <button class="btn bg-tertiary text-primary" type="submit"><i
+                                            class="icon-search"></i></button>
                                 </div><!-- End .header-search-wrapper -->
                             </form>
                         </div><!-- End .header-search -->
@@ -231,7 +235,7 @@
                                     <div class="dropdown-cart-action">
                                         <a href="cart.html" class="btn bg-tertiary text-primary">View Cart</a>
                                         <a href="checkout.html"
-                                            class="btn" style="border: 1px solid var(--foodgrubber-primary-color); color: var(--foodgrubber-tertiary-color);"><span>Checkout</span><i
+                                            class="btn bg-primary text-tertiary"><span>Checkout</span><i
                                                 class="icon-long-arrow-right"></i></a>
                                     </div><!-- End .dropdown-cart-total -->
                                 </div><!-- End .dropdown-menu -->
@@ -250,7 +254,17 @@
                                 <div class="dropdown-menu dropdown-menu-right" style="width:150px !important;">
                                     <ul class="compare-products">
                                         <a href="{{ route('customer.account') }}" class="d-block mb-1">Profile</a>
-                                        <a href="#" class="d-block">Sign Out</a>
+
+                                        <!-- Authentication -->
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+
+                                            <a href="route('logout')"
+                                                onclick="event.preventDefault();
+                                            this.closest('form').submit();"
+                                                class="d-block">Log Out</a>
+                                                {{-- fixme - redirect to marketplace after --}}
+                                        </form>
                                         {{-- <i class="icon-user"></i> --}}
                                     </ul>
                                 </div><!-- End .dropdown-menu -->
@@ -584,6 +598,12 @@
                                 {{-- <i class="icon-home"></i> --}}
                                 Market
                             </a>
+                            <span class="text-white m-3">|</span>
+                            <a href="{{ route('market.contact') }}" class="sf-with-ul text-white">
+                                {{-- fixme - style with border bottom for active state --}}
+                                {{-- <i class="icon-home"></i> --}}
+                                Contact
+                            </a>
                         </nav><!-- End .main-nav -->
                     </div><!-- End .col-lg-9 -->
                     <div class="header-right">
@@ -663,7 +683,11 @@
                             <div class="widget widget-about">
                                 <img src="{{ asset('img/logo.png') }}" class="footer-logo" alt="Footer Logo"
                                     width="105" height="25">
-                                <p>Foodgrubber is your one-stop shop for fresh groceries delivered. We connect you with local stores, a diverse selection of delicious finds, and a seamless online ordering experience. Ditch the shopping cart, browse from your phone, and enjoy convenient delivery to your doorstep. Save time,eat well, and experience the Foodgrubber difference.. </p>
+                                <p>Foodgrubber is your one-stop shop for fresh groceries delivered. We connect you with
+                                    local stores, a diverse selection of delicious finds, and a seamless online ordering
+                                    experience. Ditch the shopping cart, browse from your phone, and enjoy convenient
+                                    delivery to your doorstep. Save time,eat well, and experience the Foodgrubber
+                                    difference.. </p>
 
                                 <div class="widget-about-info">
                                     <div class="row">
@@ -970,8 +994,8 @@
         </div><!-- End .mobile-menu-wrapper -->
     </div><!-- End .mobile-menu-container -->
 
-    <!-- Sign in / Register Modal -->
-    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Sign in Modal -->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -981,119 +1005,134 @@
 
                     <div class="form-box">
                         <div class="form-tab">
-                            <ul class="nav nav-pills nav-fill nav-border-anim" role="tablist">
+                            <ul class="nav nav-pills nav-fill" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin"
-                                        role="tab" aria-controls="signin" aria-selected="true">Sign In</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="register-tab" data-toggle="tab" href="#register"
-                                        role="tab" aria-controls="register" aria-selected="false">Register</a>
+                                    <a class="nav-link" id="signin-tab-2" data-toggle="tab" href="#signin-2"
+                                        role="tab" aria-controls="signin-2" aria-selected="false">Log In</a>
                                 </li>
                             </ul>
-                            <div class="tab-content" id="tab-content-5">
-                                <div class="tab-pane fade show active" id="signin" role="tabpanel"
-                                    aria-labelledby="signin-tab">
-                                    <form action="#">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="signin-2" role="tabpanel"
+                                    aria-labelledby="signin-tab-2">
+                                    <form method="POST" action="{{ route('login') }}">
+                                        @csrf
                                         <div class="form-group">
-                                            <label for="singin-email">Username or email address *</label>
-                                            <input type="text" class="form-control" id="singin-email"
-                                                name="singin-email" required>
+                                            <label for="email">Email address *</label>
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                required>
+                                            @if ($errors->has('email'))
+                                                @foreach ($errors->get('email') as $message)
+                                                    <p style="color:red;">{{ $message }}</p>
+                                                @endforeach
+                                            @endif
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
-                                            <label for="singin-password">Password *</label>
-                                            <input type="password" class="form-control" id="singin-password"
-                                                name="singin-password" required>
+                                            <label for="password">Password *</label>
+                                            <input type="password" class="form-control" id="password"
+                                                name="password" required>
                                         </div><!-- End .form-group -->
 
                                         <div class="form-footer">
-                                            <button type="submit" class="btn btn-outline-primary-2">
+                                            <button type="submit" class="btn bg-tertiary text-primary">
                                                 <span>LOG IN</span>
                                                 <i class="icon-long-arrow-right"></i>
                                             </button>
 
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="signin-remember">
-                                                <label class="custom-control-label" for="signin-remember">Remember
-                                                    Me</label>
-                                            </div><!-- End .custom-checkbox -->
-
-                                            <a href="#" class="forgot-link">Forgot Your Password?</a>
+                                            <a href="{{ route('password.request') }}" class="forgot-link">Forgot Your
+                                                Password?</a>
                                         </div><!-- End .form-footer -->
                                     </form>
-                                    <div class="form-choice">
-                                        <p class="text-center">or sign in with</p>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login btn-g">
-                                                    <i class="icon-google"></i>
-                                                    Login With Google
-                                                </a>
-                                            </div><!-- End .col-6 -->
-                                            <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login btn-f">
-                                                    <i class="icon-facebook-f"></i>
-                                                    Login With Facebook
-                                                </a>
-                                            </div><!-- End .col-6 -->
-                                        </div><!-- End .row -->
-                                    </div><!-- End .form-choice -->
                                 </div><!-- .End .tab-pane -->
-                                <div class="tab-pane fade" id="register" role="tabpanel"
-                                    aria-labelledby="register-tab">
-                                    <form action="/signup" method="POST">
+                            </div><!-- End .tab-content -->
+                        </div><!-- End .form-tab -->
+                    </div><!-- End .form-box -->
+                </div><!-- End .modal-body -->
+            </div><!-- End .modal-content -->
+        </div><!-- End .modal-dialog -->
+    </div><!-- End .modal -->
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="icon-close"></i></span>
+                    </button>
+
+                    <div class="form-box">
+                        <div class="form-tab">
+                            <ul class="nav nav-pills nav-fill" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link" id="register-tab-2" data-toggle="tab" href="#register-2"
+                                        role="tab" aria-controls="register-2" aria-selected="true">Register</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="register-2" role="tabpanel"
+                                    aria-labelledby="register-tab-2">
+                                    <form method="POST" action="{{ route('register') }}">
                                         @csrf
                                         <div class="form-group">
-                                            <label for="register-email">Your email address *</label>
-                                            <input type="email" class="form-control" id="register-email"
-                                                name="email" required>
+                                            <label for="name">Name *</label>
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                required>
+                                            @if ($errors->has('name'))
+                                                @foreach ($errors->get('name') as $message)
+                                                    <p style="color:red;">{{ $message }}</p>
+                                                @endforeach
+                                            @endif
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
-                                            <label for="register-password">Password *</label>
-                                            <input type="password" class="form-control" id="register-password"
+                                            <label for="email">Email address *</label>
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                required>
+                                            @if ($errors->has('email'))
+                                                @foreach ($errors->get('email') as $message)
+                                                    <p style="color:red;">{{ $message }}</p>
+                                                @endforeach
+                                            @endif
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-group">
+                                            <label for="password">Password *</label>
+                                            <input type="password" class="form-control" id="password"
                                                 name="password" required>
+                                            @if ($errors->has('password'))
+                                                @foreach ($errors->get('password') as $message)
+                                                    <p style="color:red;">{{ $message }}</p>
+                                                @endforeach
+                                            @endif
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
-                                            <label for="register-password-confirm">Confirm Password *</label>
-                                            <input type="password" class="form-control"
-                                                id="register-password-confirm" name="password_confirmation" required>
+                                            <label for="password_confirmation">Confirm Password *</label>
+                                            <input type="password" class="form-control" id="password_confirmation"
+                                                name="password_confirmation" required>
+                                            @if ($errors->has('password_confirmation'))
+                                                @foreach ($errors->get('password_confirmation') as $message)
+                                                    <p style="color:red;">{{ $message }}</p>
+                                                @endforeach
+                                            @endif
                                         </div><!-- End .form-group -->
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input"
+                                                id="register-policy-2" required>
+                                            <label class="custom-control-label" for="register-policy-2">I agree to
+                                                the <a href="#" class="text-secondary">privacy policy</a>
+                                                *</label>
+                                        </div><!-- End .custom-checkbox -->
 
                                         <div class="form-footer">
-                                            <button type="submit" class="btn btn-outline-primary-2">
+                                            <button type="submit" class="btn bg-tertiary text-primary">
                                                 <span>SIGN UP</span>
                                                 <i class="icon-long-arrow-right"></i>
                                             </button>
-
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="register-policy" required>
-                                                <label class="custom-control-label" for="register-policy">I agree to
-                                                    the <a href="#">privacy policy</a> *</label>
-                                            </div><!-- End .custom-checkbox -->
                                         </div><!-- End .form-footer -->
                                     </form>
-                                    <div class="form-choice">
-                                        <p class="text-center">or sign in with</p>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login btn-g">
-                                                    <i class="icon-google"></i>
-                                                    Login With Google
-                                                </a>
-                                            </div><!-- End .col-6 -->
-                                            <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login  btn-f">
-                                                    <i class="icon-facebook-f"></i>
-                                                    Login With Facebook
-                                                </a>
-                                            </div><!-- End .col-6 -->
-                                        </div><!-- End .row -->
-                                    </div><!-- End .form-choice -->
                                 </div><!-- .End .tab-pane -->
                             </div><!-- End .tab-content -->
                         </div><!-- End .form-tab -->

@@ -11,14 +11,26 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('phone');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('billing_address');
+            $table->string('billing_city');
+            $table->string('billing_state');
+            $table->string('billing_country');
+            $table->string('billing_postcode');
+            $table->string('shipping_address');
+            $table->string('shipping_city');
+            $table->string('shipping_state');
+            $table->string('shipping_country');
+            $table->string('shipping_postcode');
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 

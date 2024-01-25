@@ -11,38 +11,31 @@ class MarketController extends Controller
 {
     public function market()
     {
+        $pageTitle = 'Market | Foodgrubber';
         $products = Product::where('availability', 1)->get();       //paginate to 20
         $categories = Category::pluck('category');
 
-        return view('market.index', compact('products', 'categories'));
+        return view('market.index', compact('pageTitle', 'products', 'categories'));
+    }
+
+    public function contact()
+    {
+        $pageTitle = 'Contact | Foodgrubber';
+        $categories = Category::pluck('category');
+        return view('market.contact', compact('pageTitle', 'categories'));
     }
 
     public function product($id)
     {
         // Logic to handle individual product pages
-        return view('market.product', ['product_id' => $id, 'categories' => ['seed', 'plant']]);
+        $pageTitle = 'Product | Foodgrubber';
+        return view('market.product', compact('pageTitle', 'categories', 'id'));
     }
 
     public function search()
     {
+        $pageTitle = 'Search | Foodgrubber';
         $categories = Category::pluck('category');
-        return view('market.search', compact('categories'));
-    }
-
-    // fixme - goes to userController
-    public function account()
-    {
-        // Logic to handle individual product pages
-        return view('market.account');
-    }
-    public function cart()
-    {
-        // Logic to handle individual product pages
-        return view('market.cart');
-    }
-    public function checkout()
-    {
-        // Logic to handle individual product pages
-        return view('market.checkout');
+        return view('market.search', compact('pageTitle', 'categories'));
     }
 }
