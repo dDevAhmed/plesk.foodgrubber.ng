@@ -292,8 +292,8 @@
                                         <a href="{{ url('product/' . $product->id) }}">
                                             {{-- <img src="http://foodpartners.foodgrubber.ng/products/{{ $product->image1 }}" alt="Product image" class="product-image"> --}}
                                             {{-- <img src="{{ $product->image1 }} ? '../../foodpartners.foodgrubber.ng/public/img/products/{{ $product->image1 }}' : '../../foodpartners.foodgrubber.ng/public/img/products/no-product-image.png'" --}}
-                                            <img src="{{ $product->image1 }} ? 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/{{ $product->image1 }}' : 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/no-product-image.png'"
-                                            {{-- <img src="{{ $product->image1 ? asset('market/' . $product->image1) : asset('market/no-product-image.png') }}" --}}
+                                            {{-- <img src="{{ $product->image1 }} ? 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/{{ $product->image1 }}' : 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/no-product-image.png'" --}}
+                                            <img src="{{ $product->image1 ? asset('market/' . $product->image1) : asset('market/no-product-image.png') }}"
                                                 alt="Product image" class="product-image"
                                                 style="width: 100%; height: auto; object-fit: cover;">
                                         </a>
