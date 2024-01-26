@@ -584,23 +584,26 @@
                     </div> --}}
                     <!-- End .col-lg-3 -->
                     <div class="header-left">
-                        <nav class="main-nav">
+                        <nav class="main-nav market-nav">
                             <a href="{{ route('foodgrubber.index') }}" class="sf-with-ul text-white">
                                 {{-- fixme - style with border bottom at active state --}}
                                 {{-- <i class="icon-home"></i> --}}
                                 Home
                             </a>
                             <span class="text-white m-3">|</span>
-                            <a href="{{ route('market.index') }}" class="sf-with-ul text-white">
-                                {{-- fixme - style with border bottom for active state --}}
+                            <a href="{{ route('market.index') }}" class="sf-with-ul text-white {{ Request::is('marrketplace') ? 'active' : '' }}">
                                 {{-- <i class="icon-home"></i> --}}
                                 Market
                             </a>
                             <span class="text-white m-3">|</span>
-                            <a href="{{ route('market.contact') }}" class="sf-with-ul text-white">
-                                {{-- fixme - style with border bottom for active state --}}
+                            <a href="{{ route('market.contact') }}" class="sf-with-ul text-white {{ Request::is('contact') ? 'active' : '' }}">
                                 {{-- <i class="icon-home"></i> --}}
                                 Contact
+                            </a>
+                            <span class="text-white m-3">|</span>
+                            <a href="{{ route('market.contact') }}" class="sf-with-ul text-white {{ Request::is('blog') ? 'active' : '' }}">
+                                {{-- <i class="icon-home"></i> --}}
+                                Blog
                             </a>
                         </nav><!-- End .main-nav -->
                     </div><!-- End .col-lg-9 -->

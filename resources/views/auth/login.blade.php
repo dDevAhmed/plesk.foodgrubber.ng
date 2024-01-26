@@ -53,7 +53,7 @@
         <main class="main">
 
             <div class="login-page bg-image pt-2 pb-2 pt-md-4 pb-md-4 pt-lg-6 pb-lg-6"
-                style="background-image: linear-gradient( 115deg, rgba(58, 58, 58, 0.8), rgba(136, 136, 136, 0.7) ), url('covers/cover-img-1.jpg');
+                style="background-image: linear-gradient(rgba(8, 8, 8, 0.8), rgba(16, 16, 16, 0.8)), url('covers/cover-img-1.jpg');
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
