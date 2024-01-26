@@ -14,20 +14,20 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('billing_address');
-            $table->string('billing_city');
-            $table->string('billing_state');
-            $table->string('billing_country');
-            $table->string('billing_postcode');
-            $table->string('shipping_address');
-            $table->string('shipping_city');
-            $table->string('shipping_state');
-            $table->string('shipping_country');
-            $table->string('shipping_postcode');
+            $table->string('billing_address')->nullable();
+            $table->string('billing_city')->nullable();
+            $table->string('billing_state')->nullable();
+            $table->string('billing_country')->nullable();
+            $table->string('billing_postcode')->nullable();
+            $table->string('shipping_address')->nullable();
+            $table->string('shipping_city')->nullable();
+            $table->string('shipping_state')->nullable();
+            $table->string('shipping_country')->nullable();
+            $table->string('shipping_postcode')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

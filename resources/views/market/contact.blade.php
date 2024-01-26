@@ -4,21 +4,14 @@
     <main class="main">
         <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
             <div class="container">
-                <h1 class="page-title">Contact us 2<span>Pages</span></h1>
+                <h1 class="page-title">Contact Us</h1>
             </div><!-- End .container -->
         </div><!-- End .page-header -->
-        <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
-            <div class="container">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Contact us 2</li>
-                </ol>
-            </div><!-- End .container -->
-        </nav><!-- End .breadcrumb-nav -->
+
+        <div class="mb-4"></div>
 
         <div class="page-content">
-            <div id="map" class="mb-5"></div><!-- End #map -->
+            {{-- <div id="map" class="mb-5"></div> --}}
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
@@ -63,13 +56,10 @@
                     <div class="col-md-9 col-lg-7">
                         <div class="text-center">
                             <h2 class="title mb-1">Get In Touch</h2><!-- End .title mb-2 -->
-                            <p class="lead text-primary">
+                            <p class="lead">
                                 We collaborate with ambitious brands and people; we’d love to build something great
                                 together.
-                            </p><!-- End .lead text-primary -->
-                            <p class="mb-3">Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu
-                                pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus
-                                sed, urna.</p>
+                            </p>
                         </div><!-- End .text-center -->
 
                         <form action="#" class="contact-form mb-2">
@@ -80,7 +70,7 @@
                                 </div><!-- End .col-sm-4 -->
 
                                 <div class="col-sm-4">
-                                    <label for="cemail" class="sr-only">Name</label>
+                                    <label for="cemail" class="sr-only">Email</label>
                                     <input type="email" class="form-control" id="cemail" placeholder="Email *"
                                         required>
                                 </div><!-- End .col-sm-4 -->

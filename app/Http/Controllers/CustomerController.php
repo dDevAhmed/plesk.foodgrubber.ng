@@ -33,13 +33,13 @@ class CustomerController extends Controller
     {
         $pageTitle = 'Cart | Foodgrubber';
         $categories = Category::pluck('category');
-        return view('market.account', compact('pageTitle', 'categories'));
+        return view('market.cart', compact('pageTitle', 'categories'));
     }
     
     public function checkout()
     {
         $pageTitle = 'Checkout | Foodgrubber';
         $categories = Category::pluck('category');
-        return view('market.account', compact('pageTitle', 'categories'));
+        return view('market.checkout', compact('pageTitle', 'categories'));
     }
 }

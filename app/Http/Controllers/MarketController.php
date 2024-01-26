@@ -29,6 +29,7 @@ class MarketController extends Controller
     {
         // Logic to handle individual product pages
         $pageTitle = 'Product | Foodgrubber';
+        $categories = Category::pluck('category');
         return view('market.product', compact('pageTitle', 'categories', 'id'));
     }
 

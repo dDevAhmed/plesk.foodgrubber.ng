@@ -19,7 +19,7 @@ use App\Http\Controllers\Api\V1\CustomerController;
 // ROUTES THAT DONT NEED AUTH
 // Route::get('search/{query}', [MarketController::class, 'index'])->name('market.index');    
 Route::get('/marketplace', [MarketController::class, 'market'])->name('market.index');
-Route::get('/contact', [MarketController::class, 'contact'])->name('market.contact');
+Route::get('/contact', [MarketController::class, 'contact'])->name('market.contact');   //should be post
 Route::get('/search', [MarketController::class, 'search'])->name('market.search');
 Route::get('/product/{id}', [MarketController::class, 'product'])->name('market.products.product');
 

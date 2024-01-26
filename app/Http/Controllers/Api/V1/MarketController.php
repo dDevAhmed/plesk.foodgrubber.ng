@@ -15,7 +15,8 @@ class MarketController extends Controller
      */
     public function index()
     {
-        return new ProductCollection(Product::paginate(20));
+        // return new ProductCollection(Product::paginate(20));
+        return new ProductCollection(Product::where('availability', 1)->paginate(20));
     }
 
     /**

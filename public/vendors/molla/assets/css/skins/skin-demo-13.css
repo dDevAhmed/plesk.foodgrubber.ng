@@ -1551,7 +1551,7 @@ a:focus {
 
 /*# sourceMappingURL=skin-demo-13.css.map */
 
-.market-nav:active{
-    color: var(--foodgrubber-primary-color);
-    border-bottom: 2px solid var(--foodgrubber-secondary-color);
+.market-nav-link:hover{
+    color: var(--foodgrubber-primary-color) !important;
+    /* border-bottom: 2px solid var(--foodgrubber-secondary-color); */
 }
