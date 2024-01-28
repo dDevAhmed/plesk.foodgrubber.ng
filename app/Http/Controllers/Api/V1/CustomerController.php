@@ -160,7 +160,7 @@ class CustomerController extends Controller
         }
     }
 
-    public function account(Request $request)
+    public function profile(Request $request)
     {
         // fixme - check if user is authorize for all auth endpoint
         if (Auth::user()) {
@@ -172,23 +172,23 @@ class CustomerController extends Controller
         }
     }
 
-    public function updateAccount(Request $request)
+    public function updateProfile(Request $request)
     {
         // Validate request data
         $fields = $request->validate([
-            'name' => 'required|string',
+            'name' => 'string',
             'phone' => 'required|string',
 
-            'billing_address' => 'required|string',
-            'billing_city' => 'required|string',
-            'billing_state' => 'required|string',
-            'billing_country' => 'required|string',
+            'billing_address' => 'string',
+            'billing_city' => 'string',
+            'billing_state' => 'string',
+            'billing_country' => 'string',
             'billing_postcode' => 'string',
 
-            'shipping_address' => 'required|string',
-            'shipping_city' => 'required|string',
-            'shipping_state' => 'required|string',
-            'shipping_country' => 'required|string',
+            'shipping_address' => 'string',
+            'shipping_city' => 'string',
+            'shipping_state' => 'string',
+            'shipping_country' => 'string',
             'shipping_postcode' => 'string',
         ]);
 
@@ -216,12 +216,20 @@ class CustomerController extends Controller
             'password' => 'required|string|confirmed',
         ]);
 
-        Auth::user()->update(['password' => bcrypt($request->password)]);
+        $updated = Auth::user()->update(['password' => bcrypt($request->password)]);
 
-        $response = [
-            'status' => 201,
-            'Message' => 'Password Updated.'
-        ];
-        return response()->json($response);
+        if ($updated) {
+            $response = [
+                'status' => 201,
+                'Message' => 'Password Updated.'
+            ];
+            return response()->json($response);
+        } else {
+            $response = [
+                'status' => 400,
+                'Message' => 'Error Updating Password.'
+            ];
+            return response()->json($response);
+        }
     }
 }

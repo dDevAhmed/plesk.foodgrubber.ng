@@ -18,10 +18,12 @@ use App\Http\Controllers\Api\V1\CustomerController;
 
 // ROUTES THAT DONT NEED AUTH
 // Route::get('search/{query}', [MarketController::class, 'index'])->name('market.index');    
-Route::get('/marketplace', [MarketController::class, 'market'])->name('market.index');
 Route::get('/contact', [MarketController::class, 'contact'])->name('market.contact');   //should be post
-Route::get('/search', [MarketController::class, 'search'])->name('market.search');
-Route::get('/product/{id}', [MarketController::class, 'product'])->name('market.products.product');
+Route::get('/search', [MarketController::class, 'search'])->name('market.search');      //should be post
+Route::get('/stores', [MarketController::class, 'stores'])->name('market.stores');
+Route::get('/store/{id}', [MarketController::class, 'store'])->name('market.stores.store');
+Route::get('/store/{id}/products', [MarketController::class, 'products'])->name('market.store.products');
+Route::get('/categories', [MarketController::class, 'categories'])->name('market.categories');
 
 Route::post('/signup', [CustomerController::class, 'signup']);
 Route::post('/login', [CustomerController::class, 'login']);
@@ -30,10 +32,11 @@ Route::post('/forgot-password', [CustomerController::class, 'forgot_password']);
 //ROUTES THAT NEED AUTH AND VERIFIED EMAIL
 // fixme - should add verify in middleware
 Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('/password/update', [CustomerController::class, 'updatePassword']);
     Route::post('/logout', [CustomerController::class, 'logout']);
 
-    Route::get('/account', [CustomerController::class, 'account'])->name('customer.account');
-    Route::post('/account', [CustomerController::class, 'updateAccount'])->name('customer.account.update');
+    Route::get('/profile', [CustomerController::class, 'profile'])->name('customer.profile');
+    Route::post('/profile', [CustomerController::class, 'updateProfile'])->name('customer.profile.update');
 
     Route::get('/wishlist', [CustomerController::class, 'wishlist'])->name('customer.wishlist');
     Route::get('/cart', [CustomerController::class, 'cart'])->name('customer.cart');

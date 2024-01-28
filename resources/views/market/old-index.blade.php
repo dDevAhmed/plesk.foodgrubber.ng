@@ -283,38 +283,81 @@
 
                 <div class="products mb-3">
                     <div class="row">
-                        @foreach ($userStores as $userStore)
-                            <div class="col-6 col-md-4 col-lg-3 col-xl-3">
+                        {{-- @foreach ($products as $product) --}}
+                            <div class="col-6 col-md-4 col-lg-3 col-xl-2">
                                 <div class="product product-5 text-center">
                                     <figure class="product-media">
-                                        {{-- <a href="{{ url('product/' . $userStore->id) }}"> --}}
+                                        {{-- <a href="{{ url('product/' . $product->id) }}"> --}}
                                         <a href="javascript:void(0)">
-                                            {{-- <img src="http://foodpartners.foodgrubber.ng/products/{{ userStore->image1 }}" alt="Product image" class="product-image"> --}}
-                                            {{-- <img src="{{ $userStore->image1 }} ? '../../foodpartners.foodgrubber.ng/public/img/products/{{ $userStore->image1 }}' : '../../foodpartners.foodgrubber.ng/public/img/products/no-product-image.png'" --}}
-                                            {{-- <img src="{{ $userStore->image1 }} ? 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/{{ $userStore->image1 }}' : 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/no-product-image.png'" --}}
-                                            {{-- <img src="{{ $userStore->image1 ? asset('market/' . $userStore->image1) : asset('market/no-product-image.png') }}" --}}
+                                            {{-- <img src="http://foodpartners.foodgrubber.ng/products/{{ $product->image1 }}" alt="Product image" class="product-image"> --}}
+                                            {{-- <img src="{{ $product->image1 }} ? '../../foodpartners.foodgrubber.ng/public/img/products/{{ $product->image1 }}' : '../../foodpartners.foodgrubber.ng/public/img/products/no-product-image.png'" --}}
+                                            {{-- <img src="{{ $product->image1 }} ? 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/{{ $product->image1 }}' : 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/no-product-image.png'" --}}
+                                            {{-- <img src="{{ $product->image1 ? asset('market/' . $product->image1) : asset('market/no-product-image.png') }}" --}}
                                             <img src="{{ asset('market/no-product-image.png') }}"
                                                 alt="Product image" class="product-image"
                                                 style="width: 100%; height: auto; object-fit: cover;">
                                         </a>
+
+                                        <div class="product-action-vertical">
+                                            {{-- <a href="#"
+                                                class="btn-product-icon btn-wishlist btn-expandable bg-primary text-tertiary border-0"><span>add to
+                                                    wishlist</span></a> --}}
+                                            {{-- <a href="#" class="btn-product-icon btn-quickview"
+                                                title="Quick view"><span>Quick view</span></a> --}}
+                                        </div>
                                     </figure>
 
                                     <div class="product-body">
+                                        <p class="product-subtitle">
+                                            {{-- <a --}}
+                                                {{-- href="{{ url('search?category=' . $product->category) }}" class="text-secondary">({{ $product->category }})</a> --}}
+                                                {{-- href="#" class="text-secondary">Something</a> --}}
+                                        </p>
                                         <h5 class="">
-                                            <a href="{{ url('store/' . $userStore->id) }}" class="text-dark">{{ $userStore->name }}</a>
+                                            {{-- <a href="{{ url('product/' . $product->id) }}" class="text-dark">{{ $product->name }}</a> --}}
+                                            <a href="#" class="text-dark">Farm fresh picked product store</a>
                                         </h5>
                                         <p class="product-description">
-                                            {{-- show top 5 selling products --}}
-                                            {{ $userStore->description ? Str::words($userStore->description, 5, '...') : 'No product description available' }}
+                                            {{-- {{ $product->description ? Str::words($product->description, 5, '...') : 'No product description available' }} --}}
+                                            No product description available yet
                                         </p>
                                         <div class="product-price mt-1 text-dark" style="font-size:15px;">
+                                            {{-- &#8358;{{ $product->price }} --}}
                                             <i class="icon-map-marker"></i> 4.345 miles
                                         </div>
+                                        {{-- <button type="submit" class="btn-product btn-cart bg-tertiary text-primary border-0 p-3"
+                                            style="margin: auto"><span>add to cart</span></button> --}}
                                     </div>
                                 </div>
                             </div><!-- End .col-sm-6 col-md-4 col-lg-3 col-xl-2 -->
-                        @endforeach
+                        {{-- @endforeach --}}
 
+                        {{-- <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="product product-5 text-center">
+                                <figure class="product-media">
+                                    <a href="product.html">
+                                        <img src="products/golden-penny-sugar-cubes.jpg" alt="Product image" class="product-image">
+                                    </a>
+
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                                        <a href="#" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                                        <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
+                                    </div><!-- End .product-action-vertical -->
+
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                    </div><!-- End .product-action -->
+                                </figure><!-- End .product-media -->
+
+                                <div class="product-body">
+                                    <h3 class="product-title"><a href="product.html">Golden Penny Sugar Cubes</a></h3><!-- End .product-title -->
+                                    <div class="product-price">
+                                        $120.00
+                                    </div><!-- End .product-price -->
+                                </div><!-- End .product-body -->
+                            </div><!-- End .product -->
+                        </div> --}}
                         <!-- End .col-sm-6 col-md-4 col-lg-3 col-xl-2 -->
                     </div><!-- End .row -->
                 </div><!-- End .products -->
@@ -324,6 +367,71 @@
                 </div><!-- End .btn-wrap -->
             </div><!-- End .container -->
         </div><!-- End .bg-light pt-5 pb-5 -->
+
+        <div class="mb-3"></div><!-- End .mb-3 -->
+
+        <div class="container">
+            <h2 class="title mb-5">Explore Popular Stores</h2><!-- End .title -->
+            <div class="owl-carousel mb-5 owl-simple" data-toggle="owl"
+                data-owl-options='{
+                "nav": false, 
+                "dots": true,
+                "margin": 30,
+                "loop": true,
+                "responsive": {
+                    "0": {
+                        "items":2
+                    },
+                    "420": {
+                        "items":3
+                    },
+                    "600": {
+                        "items":4
+                    },
+                    "900": {
+                        "items":5
+                    },
+                    "1024": {
+                        "items":6
+                    },
+                    "1280": {
+                        "items":6,
+                        "nav": true,
+                        "dots": false
+                    }
+                }
+            }'>
+                <a href="#" class="brand">
+                    <img src="{{ asset('vendors/molla/assets/images/brands/1.png') }}" alt="Brand Name">
+                </a>
+
+                <a href="#" class="brand">
+                    <img src="{{ asset('vendors/molla/assets/images/brands/2.png') }}" alt="Brand Name">
+                </a>
+
+                <a href="#" class="brand">
+                    <img src="{{ asset('vendors/molla/assets/images/brands/3.png') }}" alt="Brand Name">
+                </a>
+
+                <a href="#" class="brand">
+                    <img src="{{ asset('vendors/molla/assets/images/brands/4.png') }}" alt="Brand Name">
+                </a>
+
+                <a href="#" class="brand">
+                    <img src="{{ asset('vendors/molla/assets/images/brands/5.png') }}" alt="Brand Name">
+                </a>
+
+                <a href="#" class="brand">
+                    <img src="{{ asset('vendors/molla/assets/images/brands/6.png') }}" alt="Brand Name">
+                </a>
+
+                <a href="#" class="brand">
+                    <img src="{{ asset('vendors/molla/assets/images/brands/7.png') }}" alt="Brand Name">
+                </a>
+            </div><!-- End .owl-carousel -->
+        </div><!-- End .container -->
+
+        <div class="mb-3"></div><!-- End .mb-3 -->
 
         <div class="cta cta-horizontal cta-horizontal-box bg-tertiary">
             <div class="container">

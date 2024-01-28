@@ -28,7 +28,9 @@ Route::get('/', [AppController::class, 'index'])->name('foodgrubber.index');
 Route::get('/marketplace', [MarketController::class, 'market'])->name('market.index');    
 Route::get('/contact', [MarketController::class, 'contact'])->name('market.contact');    
 Route::get('/search', [MarketController::class, 'search'])->name('market.search');    
-Route::get('/product/{id}', [MarketController::class, 'product'])->name('market.products.product');  
+Route::get('/store/{id}', [MarketController::class, 'store'])->name('market.stores.store');  
+
+// Route::get('/store', [MarketController::class, 'testStore'])->name('market.stores.store');  
 
 // routes that need auth and verification
 Route::get('/account', [CustomerController::class, 'account'])->name('customer.account');    
