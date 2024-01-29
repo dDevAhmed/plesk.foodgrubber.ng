@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\People\Customer;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -44,7 +45,7 @@ class CustomerController extends Controller
         } else {
             $response = [
                 'status' => 500,
-                'Message' => 'Error registering user, Please try again.'
+                'Message' => 'Error registering customer, Please try again.'
             ];
             return response()->json($response);
         }
