@@ -21,43 +21,13 @@
                                             <i class="icon-arrows"></i>
                                         </a>
                                     </figure><!-- End .product-main-image -->
-
-                                    <div id="product-zoom-gallery" class="product-image-gallery">
-                                        <a class="product-gallery-item active" href="#"
-                                            data-image="{{ asset('vendors/molla/assets/images/products/single/1.jpg') }}"
-                                            data-zoom-image="{{ asset('vendors/molla/assets/images/products/single/1-big.jpg') }}">
-                                            <img src="{{ asset('vendors/molla/assets/images/products/single/1-small.jpg') }}"
-                                                alt="product side">
-                                        </a>
-
-                                        <a class="product-gallery-item" href="#"
-                                            data-image="{{ asset('vendors/molla/assets/images/products/single/2.jpg') }}"
-                                            data-zoom-image="{{ asset('vendors/molla/assets/images/products/single/2-big.jpg') }}">
-                                            <img src="{{ asset('vendors/molla/assets/images/products/single/2-small.jpg') }}"
-                                                alt="product cross">
-                                        </a>
-
-                                        <a class="product-gallery-item" href="#"
-                                            data-image="{{ asset('vendors/molla/assets/images/products/single/3.jpg') }}"
-                                            data-zoom-image="{{ asset('vendors/molla/assets/images/products/single/3-big.jpg') }}">
-                                            <img src="{{ asset('vendors/molla/assets/images/products/single/3-small.jpg') }}"
-                                                alt="product with model">
-                                        </a>
-
-                                        <a class="product-gallery-item" href="#"
-                                            data-image="{{ asset('vendors/molla/assets/images/products/single/4.jpg') }}"
-                                            data-zoom-image="{{ asset('vendors/molla/assets/images/products/single/4-big.jpg') }}">
-                                            <img src="{{ asset('vendors/molla/assets/images/products/single/4-small.jpg') }}"
-                                                alt="product back">
-                                        </a>
-                                    </div><!-- End .product-image-gallery -->
                                 </div><!-- End .row -->
                             </div><!-- End .product-gallery -->
                         </div><!-- End .col-md-6 -->
 
                         <div class="col-md-6">
                             <div class="product-details">
-                                <h1 class="product-title">Farm Fresh Stores</h1>
+                                <h1 class="product-title">{{ $store->name }}</h1>
                                 <!-- End .product-title -->
 
                                 <div class="ratings-container">
@@ -68,24 +38,13 @@
                                 </div><!-- End .rating-container -->
 
                                 <div class="product-price">
+                                    {{-- fixme - distance --}}
                                     <i class="icon-map-marker"></i> 4.345 miles
                                 </div><!-- End .product-price -->
 
                                 <div class="product-content">
-                                    <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus
-                                        libero eu augue. Morbi purus libero, faucibus adipiscing. Sed lectus. </p>
+                                    <p>{{ $store->description }} </p>
                                 </div><!-- End .product-content -->
-
-                                <div class="product-details-footer">
-                                    <div class="product-cat">
-                                        <span>Known For:</span>
-                                        <a href="#">Vegetables</a>,
-                                        <a href="#">Eggs</a>,
-                                        <a href="#">Fruits</a>,
-                                        <a href="#">Seafoods</a>,
-                                        <a href="#">Diary</a>,
-                                    </div><!-- End .product-cat -->
-                                </div><!-- End .product-details-footer -->
                                 <div class="mb-1"></div>
                                 <div class="social-icons social-icons-sm">
                                     <span class="social-label">Share:</span>
@@ -109,14 +68,14 @@
                             <a class="nav-link active" id="product-desc-link" data-toggle="tab" href="#product-desc-tab"
                                 role="tab" aria-controls="product-desc-tab" aria-selected="true">Products</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" id="product-info-link" data-toggle="tab" href="#product-info-tab"
                                 role="tab" aria-controls="product-info-tab" aria-selected="false">Description</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
-                            <a class="nav-link" id="product-shipping-link" data-toggle="tab"
-                                href="#product-shipping-tab" role="tab" aria-controls="product-shipping-tab"
-                                aria-selected="false">Shipping & Returns</a>
+                            <a class="nav-link" id="product-shipping-link" data-toggle="tab" href="#product-shipping-tab"
+                                role="tab" aria-controls="product-shipping-tab" aria-selected="false">Shipping &
+                                Returns</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab"
@@ -142,181 +101,41 @@
                                 </form>
                             </div><!-- End .header-search -->
                             <div class="row">
-                                <div class="col-6 col-md-4 col-lg-3 col-xl-3">
-                                    <div class="product product-5 text-center">
-                                        <figure class="product-media">
-                                            {{-- <a href="{{ url('product/' . userStore->id) }}"> --}}
-                                            <a href="javascript:void(0)">
-                                                {{-- <img src="http://foodpartners.foodgrubber.ng/products/{{ userStore->image1 }}" alt="Product image" class="product-image"> --}}
-                                                {{-- <img src="{{ userStore->image1 }} ? '../../foodpartners.foodgrubber.ng/public/img/products/{{ userStore->image1 }}' : '../../foodpartners.foodgrubber.ng/public/img/products/no-product-image.png'" --}}
-                                                {{-- <img src="{{ userStore->image1 }} ? 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/{{ userStore->image1 }}' : 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/no-product-image.png'" --}}
-                                                {{-- <img src="{{ userStore->image1 ? asset('market/' . userStore->image1) : asset('market/no-product-image.png') }}" --}}
-                                                <img src="{{ asset('market/no-product-image.png') }}" alt="Product image"
-                                                    class="product-image"
-                                                    style="width: 100%; height: auto; object-fit: cover;">
-                                            </a>
-                                        </figure>
+                                @foreach ($storeProducts as $storeProduct)
+                                    <div class="col-6 col-md-4 col-lg-3 col-xl-3">
+                                        <div class="product product-5 text-center">
+                                            <figure class="product-media">
+                                                <a href="javascript:void(0)">
+                                                    {{-- <img src="http://foodpartners.foodgrubber.ng/products/{{ userStore->image1 }}" alt="Product image" class="product-image"> --}}
+                                                    {{-- <img src="{{ userStore->image1 }} ? '../../foodpartners.foodgrubber.ng/public/img/products/{{ userStore->image1 }}' : '../../foodpartners.foodgrubber.ng/public/img/products/no-product-image.png'" --}}
+                                                    {{-- <img src="{{ userStore->image1 }} ? 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/{{ userStore->image1 }}' : 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/no-product-image.png'" --}}
+                                                    {{-- <img src="{{ userStore->image1 ? asset('market/' . userStore->image1) : asset('market/no-product-image.png') }}" --}}
+                                                    <img src="{{ asset('market/no-product-image.png') }}"
+                                                        alt="Product image" class="product-image"
+                                                        style="width: 100%; height: auto; object-fit: cover;">
+                                                </a>
+                                            </figure>
 
-                                        <div class="product-body border">
-                                            <p class="product-subtitle">
-                                                <a {{-- href="{{ url('search?category=' . userStore->category) }}" class="text-secondary">({{ userStore->category }})</a> --}} href="#"
-                                                    class="text-secondary">(Grains)</a>
-                                            </p>
-                                            <h5 class="">
-                                                {{-- <a href="{{ url('product/' . userStore->id) }}" class="text-dark">{{ userStore->name }}</a> --}}
-                                                <a href="#" class="text-dark">Granulated Sugar</a>
-                                            </h5>
-                                            <p class="product-description">
-                                                {{-- {{ userStore->description ? Str::words(userStore->description, 5, '...') : 'No product description available' }} --}}
-                                                No product description available yet
-                                            </p>
-                                            <div class="product-price mt-1 text-dark" style="font-size:15px;">
-                                                {{-- &#8358;{{ userStore->price }} --}}
-                                                &#8358;6000
+                                            <div class="product-body border">
+                                                <p class="product-subtitle">({{ $storeProduct->category }})</p>
+                                                <h5 class="">
+                                                    {{-- <a href="{{ url('product/' . userStore->id) }}" class="text-dark">{{ userStore->name }}</a> --}}
+                                                    <a href="#" class="text-dark">{{ $storeProduct->name }}</a>
+                                                </h5>
+                                                <p class="product-description">
+                                                    {{-- {{ userStore->description ? Str::words(userStore->description, 5, '...') : 'No product description available' }} --}}
+                                                    {{ $storeProduct->description }}
+                                                </p>
+                                                <div class="product-price mt-1 text-dark" style="font-size:15px;">
+                                                    &#8358;{{ $storeProduct->price }}
+                                                </div>
+                                                <button type="submit"
+                                                    class="btn-product btn-cart bg-tertiary text-primary border-0 p-3"
+                                                    style="margin: auto"><span>add to cart</span></button>
                                             </div>
-                                            <button type="submit"
-                                                class="btn-product btn-cart bg-tertiary text-primary border-0 p-3"
-                                                style="margin: auto"><span>add to cart</span></button>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-3 col-xl-3">
-                                    <div class="product product-5 text-center">
-                                        <figure class="product-media">
-                                            {{-- <a href="{{ url('product/' . userStore->id) }}"> --}}
-                                            <a href="javascript:void(0)">
-                                                {{-- <img src="http://foodpartners.foodgrubber.ng/products/{{ userStore->image1 }}" alt="Product image" class="product-image"> --}}
-                                                {{-- <img src="{{ userStore->image1 }} ? '../../foodpartners.foodgrubber.ng/public/img/products/{{ userStore->image1 }}' : '../../foodpartners.foodgrubber.ng/public/img/products/no-product-image.png'" --}}
-                                                {{-- <img src="{{ userStore->image1 }} ? 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/{{ userStore->image1 }}' : 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/no-product-image.png'" --}}
-                                                {{-- <img src="{{ userStore->image1 ? asset('market/' . userStore->image1) : asset('market/no-product-image.png') }}" --}}
-                                                <img src="{{ asset('market/no-product-image.png') }}" alt="Product image"
-                                                    class="product-image"
-                                                    style="width: 100%; height: auto; object-fit: cover;">
-                                            </a>
-                                        </figure>
-
-                                        <div class="product-body border">
-                                            <p class="product-subtitle">
-                                                <a {{-- href="{{ url('search?category=' . userStore->category) }}" class="text-secondary">({{ userStore->category }})</a> --}} href="#"
-                                                    class="text-secondary">(Grains)</a>
-                                            </p>
-                                            <h5 class="">
-                                                {{-- <a href="{{ url('product/' . userStore->id) }}" class="text-dark">{{ userStore->name }}</a> --}}
-                                                <a href="#" class="text-dark">Granulated Sugar</a>
-                                            </h5>
-                                            <p class="product-description">
-                                                {{-- {{ userStore->description ? Str::words(userStore->description, 5, '...') : 'No product description available' }} --}}
-                                                No product description available yet
-                                            </p>
-                                            <div class="product-price mt-1 text-dark" style="font-size:15px;">
-                                                {{-- &#8358;{{ userStore->price }} --}}
-                                                &#8358;6000
-                                            </div>
-                                            <button type="submit"
-                                                class="btn-product btn-cart bg-tertiary text-primary border-0 p-3"
-                                                style="margin: auto"><span>add to cart</span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-3 col-xl-3">
-                                    <div class="product product-5 text-center">
-                                        <figure class="product-media">
-                                            {{-- <a href="{{ url('product/' . userStore->id) }}"> --}}
-                                            <a href="javascript:void(0)">
-                                                {{-- <img src="http://foodpartners.foodgrubber.ng/products/{{ userStore->image1 }}" alt="Product image" class="product-image"> --}}
-                                                {{-- <img src="{{ userStore->image1 }} ? '../../foodpartners.foodgrubber.ng/public/img/products/{{ userStore->image1 }}' : '../../foodpartners.foodgrubber.ng/public/img/products/no-product-image.png'" --}}
-                                                {{-- <img src="{{ userStore->image1 }} ? 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/{{ userStore->image1 }}' : 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/no-product-image.png'" --}}
-                                                {{-- <img src="{{ userStore->image1 ? asset('market/' . userStore->image1) : asset('market/no-product-image.png') }}" --}}
-                                                <img src="{{ asset('market/no-product-image.png') }}" alt="Product image"
-                                                    class="product-image"
-                                                    style="width: 100%; height: auto; object-fit: cover;">
-                                            </a>
-                                        </figure>
-
-                                        <div class="product-body border">
-                                            <p class="product-subtitle">
-                                                <a {{-- href="{{ url('search?category=' . userStore->category) }}" class="text-secondary">({{ userStore->category }})</a> --}} href="#"
-                                                    class="text-secondary">(Grains)</a>
-                                            </p>
-                                            <h5 class="">
-                                                {{-- <a href="{{ url('product/' . userStore->id) }}" class="text-dark">{{ userStore->name }}</a> --}}
-                                                <a href="#" class="text-dark">Granulated Sugar</a>
-                                            </h5>
-                                            <p class="product-description">
-                                                {{-- {{ userStore->description ? Str::words(userStore->description, 5, '...') : 'No product description available' }} --}}
-                                                No product description available yet
-                                            </p>
-                                            <div class="product-price mt-1 text-dark" style="font-size:15px;">
-                                                {{-- &#8358;{{ userStore->price }} --}}
-                                                &#8358;6000
-                                            </div>
-                                            <button type="submit"
-                                                class="btn-product btn-cart bg-tertiary text-primary border-0 p-3"
-                                                style="margin: auto"><span>add to cart</span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-md-4 col-lg-3 col-xl-3">
-                                    <div class="product product-5 text-center">
-                                        <figure class="product-media">
-                                            {{-- <a href="{{ url('product/' . userStore->id) }}"> --}}
-                                            <a href="javascript:void(0)">
-                                                {{-- <img src="http://foodpartners.foodgrubber.ng/products/{{ userStore->image1 }}" alt="Product image" class="product-image"> --}}
-                                                {{-- <img src="{{ userStore->image1 }} ? '../../foodpartners.foodgrubber.ng/public/img/products/{{ userStore->image1 }}' : '../../foodpartners.foodgrubber.ng/public/img/products/no-product-image.png'" --}}
-                                                {{-- <img src="{{ userStore->image1 }} ? 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/{{ userStore->image1 }}' : 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/no-product-image.png'" --}}
-                                                {{-- <img src="{{ userStore->image1 ? asset('market/' . userStore->image1) : asset('market/no-product-image.png') }}" --}}
-                                                <img src="{{ asset('market/no-product-image.png') }}" alt="Product image"
-                                                    class="product-image"
-                                                    style="width: 100%; height: auto; object-fit: cover;">
-                                            </a>
-                                        </figure>
-
-                                        <div class="product-body border">
-                                            <p class="product-subtitle">
-                                                <a {{-- href="{{ url('search?category=' . userStore->category) }}" class="text-secondary">({{ userStore->category }})</a> --}} href="#"
-                                                    class="text-secondary">(Grains)</a>
-                                            </p>
-                                            <h5 class="">
-                                                {{-- <a href="{{ url('product/' . userStore->id) }}" class="text-dark">{{ userStore->name }}</a> --}}
-                                                <a href="#" class="text-dark">Granulated Sugar</a>
-                                            </h5>
-                                            <p class="product-description">
-                                                {{-- {{ userStore->description ? Str::words(userStore->description, 5, '...') : 'No product description available' }} --}}
-                                                No product description available yet
-                                            </p>
-                                            <div class="product-price mt-1 text-dark" style="font-size:15px;">
-                                                {{-- &#8358;{{ userStore->price }} --}}
-                                                &#8358;6000
-                                            </div>
-                                            <button type="submit"
-                                                class="btn-product btn-cart bg-tertiary text-primary border-0 p-3"
-                                                style="margin: auto"><span>add to cart</span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- End .product-desc-content -->
-                        </div><!-- .End .tab-pane -->
-                        <div class="tab-pane fade" id="product-info-tab" role="tabpanel"
-                            aria-labelledby="product-info-link">
-                            <div class="product-desc-content">
-                                <h3>Information</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat
-                                    mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non, semper
-                                    suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam
-                                    porttitor mauris sit amet orci. </p>
-
-                                <h3>Fabric & care</h3>
-                                <ul>
-                                    <li>Faux suede fabric</li>
-                                    <li>Gold tone metal hoop handles.</li>
-                                    <li>RI branding</li>
-                                    <li>Snake print trim interior </li>
-                                    <li>Adjustable cross body strap</li>
-                                    <li> Height: 31cm; Width: 32cm; Depth: 12cm; Handle Drop: 61cm</li>
-                                </ul>
-
-                                <h3>Size</h3>
-                                <p>one size</p>
+                                @endforeach
                             </div><!-- End .product-desc-content -->
                         </div><!-- .End .tab-pane -->
                         <div class="tab-pane fade" id="product-shipping-tab" role="tabpanel"

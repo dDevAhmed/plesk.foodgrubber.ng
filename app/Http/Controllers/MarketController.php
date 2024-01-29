@@ -21,28 +21,19 @@ class MarketController extends Controller
         return view('market.index', compact('pageTitle', 'userStores', 'categories'));
     }
 
-    public function contact()
-    {
-        $pageTitle = 'Contact | Foodgrubber';
-        $categories = Category::pluck('category');
-        return view('market.contact', compact('pageTitle', 'categories'));
-    }
-
     public function store($id)
     {
         // Logic to handle individual product pages
         $pageTitle = 'Store | Foodgrubber';
         $categories = Category::pluck('category');
-        $store = UserStore::findOrFail($id);
-        return view('market.store', compact('pageTitle', 'categories', 'store'));
-    }
 
-    public function testStore()
-    {
-        // Logic to handle individual product pages
-        $pageTitle = 'Store | Foodgrubber';
-        $categories = Category::pluck('category');
-        return view('market.store', compact('pageTitle', 'categories',));
+        $store = UserStore::with(['products' => function ($query) {
+            $query->where('availability', 1); // Apply availability filter during eager loading
+        }])->find($id);
+
+        $storeProducts = $store->products;
+
+        return view('market.store', compact('pageTitle', 'categories', 'store', 'storeProducts'));
     }
 
     public function search()
@@ -50,5 +41,12 @@ class MarketController extends Controller
         $pageTitle = 'Search | Foodgrubber';
         $categories = Category::pluck('category');
         return view('market.search', compact('pageTitle', 'categories'));
+    }
+
+    public function contact()
+    {
+        $pageTitle = 'Contact | Foodgrubber';
+        $categories = Category::pluck('category');
+        return view('market.contact', compact('pageTitle', 'categories'));
     }
 }

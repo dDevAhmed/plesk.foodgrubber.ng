@@ -293,7 +293,7 @@
                                             {{-- <img src="{{ $userStore->image1 }} ? '../../foodpartners.foodgrubber.ng/public/img/products/{{ $userStore->image1 }}' : '../../foodpartners.foodgrubber.ng/public/img/products/no-product-image.png'" --}}
                                             {{-- <img src="{{ $userStore->image1 }} ? 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/{{ $userStore->image1 }}' : 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/no-product-image.png'" --}}
                                             {{-- <img src="{{ $userStore->image1 ? asset('market/' . $userStore->image1) : asset('market/no-product-image.png') }}" --}}
-                                            <img src="{{ asset('market/no-product-image.png') }}"
+                                            <img src="{{ asset('img/default_store_logo.jpg') }}"
                                                 alt="Product image" class="product-image"
                                                 style="width: 100%; height: auto; object-fit: cover;">
                                         </a>
@@ -301,7 +301,7 @@
 
                                     <div class="product-body">
                                         <h5 class="">
-                                            <a href="{{ url('store/' . $userStore->id) }}" class="text-dark">{{ $userStore->name }}</a>
+                                            <a href="{{ route('market.stores.store', $userStore->id) }}" class="text-dark">{{ $userStore->name }}</a>
                                         </h5>
                                         <p class="product-description">
                                             {{-- show top 5 selling products --}}

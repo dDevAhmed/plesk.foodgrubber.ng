@@ -233,4 +233,6 @@ class CustomerController extends Controller
             return response()->json($response);
         }
     }
+
+    // ecommerce apis | cart, wishlist, checkout, orders
 }

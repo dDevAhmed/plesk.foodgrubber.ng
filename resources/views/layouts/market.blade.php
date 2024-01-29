@@ -35,14 +35,14 @@
     <!--Custom Css-->
     <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/custom.css') }}"> --}}
 
-    <link rel="stylesheet" href="vendors/molla/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/molla/assets/css/plugins/owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="vendors/molla/assets/css/plugins/magnific-popup/magnific-popup.css">
-    <link rel="stylesheet" href="vendors/molla/assets/css/plugins/jquery.countdown.css">
+    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/plugins/owl-carousel/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/plugins/magnific-popup/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/plugins/jquery.countdown.css') }}">
     <!-- Main CSS File -->
-    <link rel="stylesheet" href="vendors/molla/assets/css/style.css">
-    <link rel="stylesheet" href="vendors/molla/assets/css/skins/skin-demo-13.css">
-    <link rel="stylesheet" href="vendors/molla/assets/css/demos/demo-13.css">
+    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/skins/skin-demo-13.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/demos/demo-13.css') }}">
     <!--Custom Css-->
     {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
 </head>
@@ -86,7 +86,8 @@
                         </button>
 
                         <a href="index.html" class="logo">
-                            <img src="{{ asset('img/logo.png') }}" alt="Foodgrubber Logo" width="105" height="25">
+                            <img src="{{ asset('img/logo.png') }}" alt="Foodgrubber Logo" width="105"
+                                height="25">
                         </a>
                     </div><!-- End .header-left -->
 
@@ -285,17 +286,20 @@
                                 Home
                             </a>
                             <span class="text-white m-3">|</span>
-                            <a href="{{ route('market.index') }}" class="sf-with-ul text-white market-nav-link {{ Request::is('marrketplace') ? 'active' : '' }}">
+                            <a href="{{ route('market.index') }}"
+                                class="sf-with-ul text-white market-nav-link {{ Request::is('marrketplace') ? 'active' : '' }}">
                                 {{-- <i class="icon-home"></i> --}}
                                 Market
                             </a>
                             <span class="text-white m-3">|</span>
-                            <a href="{{ route('market.contact') }}" class="sf-with-ul text-white market-nav-link {{ Request::is('contact') ? 'active' : '' }}">
+                            <a href="{{ route('market.contact') }}"
+                                class="sf-with-ul text-white market-nav-link {{ Request::is('contact') ? 'active' : '' }}">
                                 {{-- <i class="icon-home"></i> --}}
                                 Contact
                             </a>
                             <span class="text-white m-3">|</span>
-                            <a href="javascript:void(0)" class="sf-with-ul text-white market-nav-link {{ Request::is('blog') ? 'active' : '' }}">
+                            <a href="javascript:void(0)"
+                                class="sf-with-ul text-white market-nav-link {{ Request::is('blog') ? 'active' : '' }}">
                                 {{-- <i class="icon-home"></i> --}}
                                 Blog
                             </a>
@@ -868,37 +872,23 @@
             </div>
         </div>
     </div> --}}
-    <!-- Plugins JS File -->
-    {{-- <script src="{{ asset('vendors/molla/assets/js/jquery.min.js"') }}"></script>
-    <script src="{{ asset('vendors/molla/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('vendors/molla/assets/js/jquery.hoverIntent.min.js') }}"></script>
-    <script src="{{ asset('vendors/molla/assets/js/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('vendors/molla/assets/js/superfish.min.js') }}"></script>
-    <script src="vendors/molla/assets/js/owl.carousel.min.js"></script>
-    <script src="{{ asset('vendors/molla/assets/js/bootstrap-input-spinner.js') }}"></script>
-    <script src="{{ asset('vendors/molla/assets/js/jquery.magnific-popup.min') }}.js"></script>
-    <script src="{{ asset('vendors/molla/assets/js/jquery.plugin.min.js') }}"></script>
-    <script src="{{ asset('vendors/molla/assets/js/jquery.countdown.min.js') }}"></script>
 
-    <!-- Main JS File -->
-    <script src="{{ asset('vendors/molla/assets/js/main.js') }}"></script>
-    <script src="{{ asset('vendors/molla/assets/js/demos/demo-13.js') }}"></script> --}}
+    {{-- @push('script') --}}
+        <script src="{{ asset('vendors/molla/assets/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('vendors/molla/assets/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('vendors/molla/assets/js/jquery.hoverIntent.min.js') }}"></script>
+        <script src="{{ asset('vendors/molla/assets/js/jquery.waypoints.min.js') }}"></script>
+        <script src="{{ asset('vendors/molla/assets/js/superfish.min.js') }}"></script>
+        <script src="{{ asset('vendors/molla/assets/js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('vendors/molla/assets/js/bootstrap-input-spinner.js') }}"></script>
+        <script src="{{ asset('vendors/molla/assets/js/jquery.magnific-popup.min.js') }}"></script>
+        <script src="{{ asset('vendors/molla/assets/js/jquery.plugin.min.js') }}"></script>
+        <script src="{{ asset('vendors/molla/assets/js/jquery.countdown.min.js') }}"></script>
 
-    <script src="vendors/molla/assets/js/jquery.min.js"></script>
-    <script src="vendors/molla/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="vendors/molla/assets/js/jquery.hoverIntent.min.js"></script>
-    <script src="vendors/molla/assets/js/jquery.waypoints.min.js"></script>
-    <script src="vendors/molla/assets/js/superfish.min.js"></script>
-    <script src="vendors/molla/assets/js/owl.carousel.min.js"></script>
-    <script src="vendors/molla/assets/js/bootstrap-input-spinner.js"></script>
-    <script src="vendors/molla/assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="vendors/molla/assets/js/jquery.plugin.min.js"></script>
-    <script src="vendors/molla/assets/js/jquery.countdown.min.js"></script>
-
-    <!-- Main JS File -->
-    <script src="vendors/molla/assets/js/main.js"></script>
-    <script src="vendors/molla/assets/js/demos/demo-13.js"></script>
-
+        <!-- Main JS File -->
+        <script src="{{ asset('vendors/molla/assets/js/main.js') }}"></script>
+        <script src="{{ asset('vendors/molla/assets/js/demos/demo-13.js') }}"></script>
+    {{-- @endpush --}}
     {{-- @stack('script'); --}}
 </body>
 
