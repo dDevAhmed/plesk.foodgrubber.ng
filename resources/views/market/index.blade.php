@@ -27,7 +27,7 @@
                 <div class="col-sm-6 col-lg-3 order-lg-last">
                     <div class="banner banner-overlay">
                         <a href="#">
-                            <img src="{{ asset('vendors/molla/assets/images/demos/demo-13/banners/banner-3.jpg') }}"
+                            <img src="{{ asset('vendors/molla/assets/images/demos/demo-13/banners/banner-3.png') }}"
                                 alt="Banner">
                         </a>
 
@@ -57,14 +57,14 @@
                             </a>
 
                             <div class="banner-content">
-                                <h4 class="banner-subtitle text-white d-none d-sm-block"><a href="#">Season's Best
+                                <h4 class="banner-subtitle text-dark d-none d-sm-block"><a href="#">Season's Best
                                         Delivered</a>
                                 </h4><!-- End .banner-subtitle -->
-                                <h3 class="banner-title text-white"><a href="#">Fresh, local produce <br> at your
+                                <h3 class="banner-title text-dark"><a href="#">Fresh, local produce <br> at your
                                         fingertips.</a></h3>
                                 <!-- End .banner-title -->
                                 {{-- note - links to a curated page of seasonal items --}}
-                                <a href="#" class="banner-link">Explore Seasonal Picks <i
+                                <a href="#" class="banner-link text-dark">Explore Seasonal Picks <i
                                         class="icon-long-arrow-right"></i></a>
                             </div><!-- End .banner-content -->
                         </div><!-- End .banner -->
@@ -263,22 +263,6 @@
                     <div class="heading-left">
                         <h2 class="title">Stores</h2><!-- End .title -->
                     </div><!-- End .heading-left -->
-
-                    <div class="heading-right">
-                        <div class="toolbox">
-                            <div class="toolbox-right">
-                                <div class="toolbox-sort">
-                                    <label for="sortby">Show by</label>
-                                    <div class="select-custom">
-                                        <select name="sortby" id="sortby" class="form-control">
-                                            <option value="">All stores</option>
-                                            <option value="">Closest Location</option>
-                                        </select>
-                                    </div>
-                                </div><!-- End .toolbox-sort -->
-                            </div><!-- End .toolbox-right -->
-                        </div><!-- End .toolbox -->
-                    </div><!-- End .heading-right -->
                 </div><!-- End .heading -->
 
                 <div class="products mb-3">
@@ -293,7 +277,7 @@
                                             {{-- <img src="{{ $userStore->image1 }} ? '../../foodpartners.foodgrubber.ng/public/img/products/{{ $userStore->image1 }}' : '../../foodpartners.foodgrubber.ng/public/img/products/no-product-image.png'" --}}
                                             {{-- <img src="{{ $userStore->image1 }} ? 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/{{ $userStore->image1 }}' : 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/no-product-image.png'" --}}
                                             {{-- <img src="{{ $userStore->image1 ? asset('market/' . $userStore->image1) : asset('market/no-product-image.png') }}" --}}
-                                            <img src="{{ asset('img/default_store_logo.jpg') }}"
+                                            <img src="{{ asset('market/default_store_logo.jpg') }}"
                                                 alt="Product image" class="product-image"
                                                 style="width: 100%; height: auto; object-fit: cover;">
                                         </a>

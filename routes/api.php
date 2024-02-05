@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\V1\CartController;
 use App\Http\Controllers\Api\V1\MarketController;
 use App\Http\Controllers\Api\V1\CustomerController;
 
@@ -22,7 +23,7 @@ Route::get('/contact', [MarketController::class, 'contact'])->name('market.conta
 Route::get('/search', [MarketController::class, 'search'])->name('market.search');      //should be post
 Route::get('/stores', [MarketController::class, 'stores'])->name('market.stores');
 Route::get('/store/{id}', [MarketController::class, 'store'])->name('market.stores.store');
-Route::get('/store/{id}/products', [MarketController::class, 'products'])->name('market.store.products');
+// Route::get('/store/{id}/products', [MarketController::class, 'products'])->name('market.store.products');
 Route::get('/categories', [MarketController::class, 'categories'])->name('market.categories');
 
 Route::post('/signup', [CustomerController::class, 'signup']);
@@ -39,8 +40,15 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/profile', [CustomerController::class, 'updateProfile'])->name('customer.profile.update');
 
     Route::get('/wishlist', [CustomerController::class, 'wishlist'])->name('customer.wishlist');
-    Route::get('/cart', [CustomerController::class, 'cart'])->name('customer.cart');
-    Route::get('/checkout', [CustomerController::class, 'checkout'])->name('customer.checkout');
+
+    Route::get('/cart', [CartController::class, 'cart'])->name('cart.index.cart');
+    // Route::get('/get-cart-quantity', 'CartController@getCartQuantity')->name('get.cart.quantity');
+
+    Route::get('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout'); 
+
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

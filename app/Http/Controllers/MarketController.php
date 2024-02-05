@@ -23,7 +23,6 @@ class MarketController extends Controller
 
     public function store($id)
     {
-        // Logic to handle individual product pages
         $pageTitle = 'Store | Foodgrubber';
         $categories = Category::pluck('category');
 

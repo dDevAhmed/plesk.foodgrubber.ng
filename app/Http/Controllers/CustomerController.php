@@ -30,18 +30,11 @@ class CustomerController extends Controller
         $categories = Category::pluck('category');
         return view('market.wishlist', compact('pageTitle', 'categories'));
     }
-
-    public function cart()
-    {
-        $pageTitle = 'Cart | Foodgrubber';
-        $categories = Category::pluck('category');
-        return view('market.cart', compact('pageTitle', 'categories'));
-    }
     
-    public function checkout()
-    {
-        $pageTitle = 'Checkout | Foodgrubber';
-        $categories = Category::pluck('category');
-        return view('market.checkout', compact('pageTitle', 'categories'));
-    }
+    // public function checkout()
+    // {
+    //     $pageTitle = 'Checkout | Foodgrubber';
+    //     $categories = Category::pluck('category');
+    //     return view('market.checkout', compact('pageTitle', 'categories'));
+    // }
 }

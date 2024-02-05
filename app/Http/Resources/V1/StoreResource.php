@@ -22,7 +22,8 @@ class StoreResource extends JsonResource
             'state' => $this->state,
             'current_location' => $this->current_location,
             'description' => $this->description,
-            'logo' => $this->logo
+            'logo' => $this->logo,
+            'products' => $this->products
         ];
     }
 }

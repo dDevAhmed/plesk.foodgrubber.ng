@@ -1,2 +1,5 @@
 toast notification
 email verification
+mobile menu
+footer
+

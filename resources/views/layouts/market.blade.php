@@ -23,17 +23,6 @@
     <meta name="msapplication-config" content="assets/images/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css"> --}}
-    {{-- <!-- Plugins CSS File -->
-    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/plugins/owl-carousel/owl.carousel.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/plugins/magnific-popup/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/plugins/jquery.countdown.css') }}">
-    <!-- Main CSS File -->
-    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/skins/skin-demo-13.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/demos/demo-13.css') }}">
-    <!--Custom Css-->
-    <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/custom.css') }}"> --}}
 
     <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/plugins/owl-carousel/owl.carousel.css') }}">
@@ -43,8 +32,12 @@
     <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/skins/skin-demo-13.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/molla/assets/css/demos/demo-13.css') }}">
+
     <!--Custom Css-->
     {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
+
+    <!-- Scripts -->
+    @vite(['resources/js/script.js'])
 </head>
 
 <body>
@@ -56,9 +49,9 @@
                         <a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a>
                     </div><!-- End .header-left -->
 
-                    @if (!Auth::user())
-                        <div class="header-right">
-                            <ul class="top-menu">
+                    <div class="header-right">
+                        <ul class="top-menu">
+                            @if (!Auth::user())
                                 <li>
                                     <a href="#">Links</a>
                                     <ul>
@@ -70,9 +63,20 @@
                                         </li>
                                     </ul>
                                 </li>
-                            </ul><!-- End .top-menu -->
-                        </div><!-- End .header-right -->
-                    @endif
+                            @else
+                                {{-- <li class="login">
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); this.closest('form').submit();"
+                                            class="">Log Out &nbsp;<img width="14" height="14"
+                                                src="https://img.icons8.com/fluency-systems-regular/100/exit--v1.png"
+                                                alt="exit--v1" /></a>
+                                    </form>
+                                </li> --}}
+                            @endif
+                        </ul><!-- End .top-menu -->
+                    </div><!-- End .header-right -->
 
                 </div><!-- End .container -->
             </div><!-- End .header-top -->
@@ -132,56 +136,12 @@
                                 <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false" data-display="static">
                                     <i class="icon-shopping-cart"></i>
-                                    <span class="cart-count bg-primary text-tertiary">2</span>
+                                    <span class="cart-count bg-primary text-tertiary">0</span>
                                     <span class="cart-txt">Cart</span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <div class="dropdown-cart-products">
-                                        <div class="product">
-                                            <div class="product-cart-details">
-                                                <h4 class="product-title">
-                                                    <a href="product.html">Beige knitted elastic runner shoes</a>
-                                                </h4>
-
-                                                <span class="cart-product-info">
-                                                    <span class="cart-product-qty">1</span>
-                                                    x $84.00
-                                                </span>
-                                            </div><!-- End .product-cart-details -->
-
-                                            <figure class="product-image-container">
-                                                <a href="product.html" class="product-image">
-                                                    <img src="{{ asset('vendors/molla/assets/images/products/cart/product-1.jpg') }}"
-                                                        alt="product">
-                                                </a>
-                                            </figure>
-                                            <a href="#" class="btn-remove" title="Remove Product"><i
-                                                    class="icon-close"></i></a>
-                                        </div><!-- End .product -->
-
-                                        <div class="product">
-                                            <div class="product-cart-details">
-                                                <h4 class="product-title">
-                                                    <a href="product.html">Blue utility pinafore denim dress</a>
-                                                </h4>
-
-                                                <span class="cart-product-info">
-                                                    <span class="cart-product-qty">1</span>
-                                                    x $76.00
-                                                </span>
-                                            </div><!-- End .product-cart-details -->
-
-                                            <figure class="product-image-container">
-                                                <a href="product.html" class="product-image">
-                                                    <img src="{{ asset('vendors/molla/assets/images/products/cart/product-2.jpg') }}"
-                                                        alt="product">
-                                                </a>
-                                            </figure>
-                                            <a href="#" class="btn-remove" title="Remove Product"><i
-                                                    class="icon-close"></i></a>
-                                        </div><!-- End .product -->
-
                                         <div class="product">
                                             <div class="product-cart-details">
                                                 <h4 class="product-title">
@@ -234,7 +194,8 @@
                                     </div><!-- End .dropdown-cart-total -->
 
                                     <div class="dropdown-cart-action">
-                                        <a href="cart.html" class="btn bg-tertiary text-primary">View Cart</a>
+                                        <a href="{{ route('cart.index') }}" class="btn bg-tertiary text-primary">View
+                                            Cart</a>
                                         <a href="checkout.html"
                                             class="btn bg-primary text-tertiary"><span>Checkout</span><i
                                                 class="icon-long-arrow-right"></i></a>
@@ -874,22 +835,23 @@
     </div> --}}
 
     {{-- @push('script') --}}
-        <script src="{{ asset('vendors/molla/assets/js/jquery.min.js') }}"></script>
-        <script src="{{ asset('vendors/molla/assets/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('vendors/molla/assets/js/jquery.hoverIntent.min.js') }}"></script>
-        <script src="{{ asset('vendors/molla/assets/js/jquery.waypoints.min.js') }}"></script>
-        <script src="{{ asset('vendors/molla/assets/js/superfish.min.js') }}"></script>
-        <script src="{{ asset('vendors/molla/assets/js/owl.carousel.min.js') }}"></script>
-        <script src="{{ asset('vendors/molla/assets/js/bootstrap-input-spinner.js') }}"></script>
-        <script src="{{ asset('vendors/molla/assets/js/jquery.magnific-popup.min.js') }}"></script>
-        <script src="{{ asset('vendors/molla/assets/js/jquery.plugin.min.js') }}"></script>
-        <script src="{{ asset('vendors/molla/assets/js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('vendors/molla/assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendors/molla/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendors/molla/assets/js/jquery.hoverIntent.min.js') }}"></script>
+    <script src="{{ asset('vendors/molla/assets/js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('vendors/molla/assets/js/superfish.min.js') }}"></script>
+    <script src="{{ asset('vendors/molla/assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('vendors/molla/assets/js/bootstrap-input-spinner.js') }}"></script>
+    <script src="{{ asset('vendors/molla/assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('vendors/molla/assets/js/jquery.plugin.min.js') }}"></script>
+    <script src="{{ asset('vendors/molla/assets/js/jquery.countdown.min.js') }}"></script>
 
-        <!-- Main JS File -->
-        <script src="{{ asset('vendors/molla/assets/js/main.js') }}"></script>
-        <script src="{{ asset('vendors/molla/assets/js/demos/demo-13.js') }}"></script>
+    <!-- Main JS File -->
+    <script src="{{ asset('vendors/molla/assets/js/main.js') }}"></script>
+    <script src="{{ asset('vendors/molla/assets/js/demos/demo-13.js') }}"></script>
     {{-- @endpush --}}
-    {{-- @stack('script'); --}}
+
+    @stack('script');
 </body>
 
 </html>

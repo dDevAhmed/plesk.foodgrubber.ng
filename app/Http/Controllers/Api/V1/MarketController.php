@@ -25,14 +25,14 @@ class MarketController extends Controller
             ->get());
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function store(string $id)
     {
-        $store = UserStore::find($id);
+        $store = UserStore::with(['products' => function ($query) {
+            $query->where('availability', 1); // Filter available products
+        }])->find($id);
 
         if ($store) {
+            // Assuming StoreResource includes product details:
             return new StoreResource($store);
         } else {
             return response()->json([
@@ -41,6 +41,7 @@ class MarketController extends Controller
             ]);
         }
     }
+
 
     public function products(string $id)
     {

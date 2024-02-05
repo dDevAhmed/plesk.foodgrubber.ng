@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\MarketController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CustomerController;
@@ -29,16 +30,21 @@ Route::get('/marketplace', [MarketController::class, 'market'])->name('market.in
 Route::get('/contact', [MarketController::class, 'contact'])->name('market.contact');    
 Route::get('/search', [MarketController::class, 'search'])->name('market.search');    
 Route::get('/store/{id}', [MarketController::class, 'store'])->name('market.stores.store'); 
-// Route::get('/store/{id}/products', [MarketController::class, 'products'])->name('market.store.products'); 
-
-Route::get('/store', [MarketController::class, 'testStore'])->name('test.store');  
 
 // routes that need auth and verification
 Route::get('/account', [CustomerController::class, 'account'])->name('customer.account');    
 Route::post('/account', [CustomerController::class, 'updateAccount'])->name('customer.account.update');    
-Route::get('/wishlist', [CustomerController::class, 'wishlist'])->name('customer.wishlist');    
-Route::get('/cart', [CustomerController::class, 'cart'])->name('customer.cart');    
-Route::get('/checkout', [CustomerController::class, 'checkout'])->name('customer.checkout');    
+
+Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');   
+// Route::get('/cart/count', [CartController::class, 'getCartCount'])->name('cart.count');
+
+Route::get('/get-cart-quantity', 'CartController@getCartQuantity')->name('get.cart.quantity');
+
+Route::get('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');  
+
+// Route::get('/wishlist', [CustomerController::class, 'wishlist'])->name('customer.wishlist'); 
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
