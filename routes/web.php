@@ -28,7 +28,13 @@ Route::get('/', [AppController::class, 'index'])->name('foodgrubber.index');
 // Route::get('search/{query}', [MarketController::class, 'index'])->name('market.index');    
 Route::get('/marketplace', [MarketController::class, 'market'])->name('market.index');    
 Route::get('/contact', [MarketController::class, 'contact'])->name('market.contact');    
-Route::get('/search', [MarketController::class, 'search'])->name('market.search');    
+Route::get('/privacy', [MarketController::class, 'privacy'])->name('market.privacy');    
+Route::get('/terms', [MarketController::class, 'terms'])->name('market.terms');    
+
+
+Route::get('/filter-stores/{category}', [MarketController::class, 'filterStoresByCategory'])->name('market.store.filter');
+
+Route::get('/search/{category}', [MarketController::class, 'search'])->name('market.search');    
 Route::get('/store/{id}', [MarketController::class, 'store'])->name('market.stores.store'); 
 
 // routes that need auth and verification

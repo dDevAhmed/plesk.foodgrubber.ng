@@ -19,6 +19,11 @@ class Product extends Model
         return $this->belongsTo(UserStore::class, 'store_id');
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category'); // Adjust column name if different
+    }
+
     // public function cartItems()
     // {
     //     return $this->hasMany(Cart::class, 'store_id');

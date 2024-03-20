@@ -142,7 +142,7 @@
                                 }
                             }
                         }'>
-                    <a href="category.html" class="cat-block">
+                    <a href="{{ route('market.search', ['category' => 'poultry']) }}" class="cat-block">
                         <figure>
                             <span>
                                 <img src="market/categories/poultry.jpg" alt="Category image">
@@ -151,7 +151,7 @@
 
                         <h3 class="cat-block-title">Poultry</h3><!-- End .cat-block-title -->
                     </a>
-                    <a href="category.html" class="cat-block">
+                    <a href="{{ route('market.search', ['category' => 'fruit']) }}" class="cat-block">
                         <figure>
                             <span>
                                 <img src="market/categories/fruit.jpg" alt="Category image">
@@ -160,7 +160,7 @@
 
                         <h3 class="cat-block-title">Fruits</h3><!-- End .cat-block-title -->
                     </a>
-                    <a href="category.html" class="cat-block">
+                    <a href="{{ route('market.search', ['category' => 'grain']) }}" class="cat-block">
                         <figure>
                             <span>
                                 <img src="market/categories/grain.jpg" alt="Category image">
@@ -169,7 +169,7 @@
 
                         <h3 class="cat-block-title">Grains</h3><!-- End .cat-block-title -->
                     </a>
-                    <a href="category.html" class="cat-block">
+                    <a href="{{ route('market.search', ['category' => 'spice']) }}" class="cat-block">
                         <figure>
                             <span>
                                 <img src="market/categories/spice.jpg" alt="Category image">
@@ -178,7 +178,7 @@
 
                         <h3 class="cat-block-title">Spices</h3><!-- End .cat-block-title -->
                     </a>
-                    <a href="category.html" class="cat-block">
+                    <a href="{{ route('market.search', ['category' => 'seasoning']) }}" class="cat-block">
                         <figure>
                             <span>
                                 <img src="market/categories/seasoning.jpg" alt="Category image">
@@ -187,7 +187,7 @@
 
                         <h3 class="cat-block-title">Seasonings</h3><!-- End .cat-block-title -->
                     </a>
-                    <a href="category.html" class="cat-block">
+                    <a href="{{ route('market.search', ['category' => 'oil']) }}" class="cat-block">
                         <figure>
                             <span>
                                 <img src="market/categories/oil.jpg" alt="Category image">
@@ -196,7 +196,7 @@
 
                         <h3 class="cat-block-title">Oils</h3><!-- End .cat-block-title -->
                     </a>
-                    <a href="category.html" class="cat-block">
+                    <a href="{{ route('market.search', ['category' => 'diary']) }}" class="cat-block">
                         <figure>
                             <span>
                                 <img src="market/categories/dairy.jpg" alt="Category image">
@@ -205,7 +205,7 @@
 
                         <h3 class="cat-block-title">Dairy</h3><!-- End .cat-block-title -->
                     </a>
-                    <a href="category.html" class="cat-block">
+                    <a href="{{ route('market.search', ['category' => 'vegetable']) }}" class="cat-block">
                         <figure>
                             <span>
                                 <img src="market/categories/vegetable.jpg" alt="Category image">
@@ -214,7 +214,7 @@
 
                         <h3 class="cat-block-title">Vegetables</h3><!-- End .cat-block-title -->
                     </a>
-                    <a href="category.html" class="cat-block">
+                    <a href="{{ route('market.search', ['category' => 'legume']) }}" class="cat-block">
                         <figure>
                             <span>
                                 <img src="market/categories/legume.jpg" alt="Category image">
@@ -223,7 +223,7 @@
 
                         <h3 class="cat-block-title">Legumes</h3><!-- End .cat-block-title -->
                     </a>
-                    <a href="category.html" class="cat-block">
+                    <a href="{{ route('market.search', ['category' => 'seafood']) }}" class="cat-block">
                         <figure>
                             <span>
                                 <img src="market/categories/seafood.jpg" alt="Category image">
@@ -232,7 +232,7 @@
 
                         <h3 class="cat-block-title">Sea Foods</h3><!-- End .cat-block-title -->
                     </a>
-                    <a href="category.html" class="cat-block">
+                    <a href="{{ route('market.search', ['category' => 'beverage']) }}" class="cat-block">
                         <figure>
                             <span>
                                 <img src="market/categories/beverage.jpg" alt="Category image">
@@ -241,7 +241,7 @@
 
                         <h3 class="cat-block-title">Beverage</h3><!-- End .cat-block-title -->
                     </a>
-                    <a href="category.html" class="cat-block">
+                    <a href="{{ route('market.search', ['category' => 'tuber']) }}" class="cat-block">
                         <figure>
                             <span>
                                 <img src="market/categories/tuber.jpg" alt="Category image">
@@ -289,11 +289,11 @@
                                         </h5>
                                         <p class="product-description">
                                             {{-- show top 5 selling products --}}
-                                            {{ $userStore->description ? Str::words($userStore->description, 5, '...') : 'No product description available' }}
+                                            {{ $userStore->description ? Str::words($userStore->description, 5, '...') : 'No store description available' }}
                                         </p>
-                                        <div class="product-price mt-1 text-dark" style="font-size:15px;">
+                                        {{-- <div class="product-price mt-1 text-dark" style="font-size:15px;">
                                             <i class="icon-map-marker"></i> 4.345 miles
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div><!-- End .col-sm-6 col-md-4 col-lg-3 col-xl-2 -->

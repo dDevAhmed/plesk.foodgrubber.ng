@@ -35,11 +35,42 @@ class MarketController extends Controller
         return view('market.store', compact('pageTitle', 'categories', 'store', 'storeProducts'));
     }
 
-    public function search()
+    public function filterStoresByCategory(Request $request, $category)
+    {
+        // Validate the category slug
+        $request->validate([
+            'category' => 'required|string|exists:categories,slug' // Adjust based on your category table
+        ]);
+
+        // Fetch stores with products in the specified category
+        $categorystores = UserStore::whereHas('products', function ($query) use ($category) {
+            $query->whereHas('categories', function ($query) use ($category) {
+                $query->where('slug', $category); // Adjust for your category field name
+            });
+        })->paginate(10); // Adjust pagination as needed
+
+        return view('search', compact('stores', 'category'));
+    }
+
+    public function search($categorySearched)
     {
         $pageTitle = 'Search | Foodgrubber';
         $categories = Category::pluck('category');
-        return view('market.search', compact('pageTitle', 'categories'));
+
+        $categoryStores = UserStore::whereHas('products', function ($query) use ($categorySearched) {
+            $query->where('category', $categorySearched); // Assuming category_id is the actual column
+        })->where('availability', 1)->get();
+
+        $categoryCounts = [];
+        foreach ($categories as $category) {
+            $count = UserStore::whereHas('products', function ($query) use ($category) {
+                $query->where('category', $category);
+            })->where('availability', 1)->count();
+            $categoryCounts[$category] = $count;
+        }
+
+        return view('market.search', compact('pageTitle', 'categories', 'categorySearched', 'categoryStores', 'categoryCounts'));
+
     }
 
     public function contact()
@@ -47,5 +78,19 @@ class MarketController extends Controller
         $pageTitle = 'Contact | Foodgrubber';
         $categories = Category::pluck('category');
         return view('market.contact', compact('pageTitle', 'categories'));
+    }
+
+    public function privacy()
+    {
+        $pageTitle = 'Privacy Policy | Foodgrubber';
+        $categories = Category::pluck('category');
+        return view('market.privacy', compact('pageTitle', 'categories'));
+    }
+
+    public function terms()
+    {
+        $pageTitle = 'Terms of Service | Foodgrubber';
+        $categories = Category::pluck('category');
+        return view('market.terms', compact('pageTitle', 'categories'));
     }
 }

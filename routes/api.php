@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::get('/wishlist', [CustomerController::class, 'wishlist'])->name('customer.wishlist');
 
-    Route::get('/cart', [CartController::class, 'cart'])->name('cart.index.cart');
+    Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');
     // Route::get('/get-cart-quantity', 'CartController@getCartQuantity')->name('get.cart.quantity');
 
     Route::get('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');

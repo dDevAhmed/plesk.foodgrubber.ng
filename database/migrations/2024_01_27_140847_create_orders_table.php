@@ -13,16 +13,14 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('user_id');
-            // $table->unsignedBigInteger('store_id');
-            // $table->string('order_number')->unique();
-            // $table->decimal('total_amount', 10, 2);
-            // $table->string('status')->default('pending');
-            // $table->timestamps();
-
-            // // Foreign key constraints
-            // $table->foreign('user_id')->references('id')->on('users');
-            // $table->foreign('store_id')->references('id')->on('stores');
+            $table->string('customer_id');
+            $table->string('store_id');
+            $table->string('order_status');        //placed, processing, shipped, delivered, canceled
+            $table->dateTime('order_date');
+            $table->integer('total_amount');
+            $table->string('delivery_address');
+            $table->string('delivery_status');      //yes,no
+            $table->dateTime('paid_date');
             $table->timestamps();
         });
     }

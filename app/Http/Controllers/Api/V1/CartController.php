@@ -14,12 +14,12 @@ class CartController extends Controller
 {
     public function cart()
     {
-        $pageTitle = 'Cart | Foodgrubber';
-        $categories = Category::pluck('category');
-
         if (!Auth::check()) {
             // Redirect to login or display a message
-            return redirect()->route('login')->with('error', 'Please log in to view your cart.');
+            return response()->json([
+                'status' => 400,
+                'message' => 'Please log in to view your cart.'      
+            ]);
         }
 
         $cart = Auth::user()->cart()->with('cartItems')->first();
@@ -27,17 +27,16 @@ class CartController extends Controller
         if (!$cart) {
             // Handle empty cart scenario
             // (e.g., display message or redirect to storefront)
-            return view('market.cart', compact('pageTitle', 'categories'));
+            return response()->json([
+                'status' => 400,
+                'message' => 'You don\'t have products in cart, add products first.'      
+            ]);
         }
 
         $cartItems = $cart->cartItems;
         $cartCount = $cart->quantity;
         $cartTotalPrice = $cart->total;
-
-        // $cart->quantity = $cart->cartItems->count();
-        // $cart->total = $cart->cartItems->sum('total_price');
-
-        // return view('market.cart', compact('pageTitle', 'categories', 'cartTotalPrice', 'cartCount', 'cartItems'));
+        
         return response()->json([
             'status' => 200,
             'cartTotalPrice' => $cartTotalPrice,

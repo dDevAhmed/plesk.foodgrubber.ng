@@ -31,10 +31,9 @@
                                     <a class="ratings-text" href="#product-review-link" id="review-link">( 2 Reviews )</a>
                                 </div><!-- End .rating-container -->
 
-                                <div class="product-price text-secondary">
-                                    {{-- fixme - distance --}}
+                                {{-- <div class="product-price text-secondary">
                                     <i class="icon-map-marker"></i> 4.345 miles
-                                </div><!-- End .product-price -->
+                                </div> --}}
 
                                 <div class="product-content">
                                     <p>{{ $store->description }} </p>
@@ -96,6 +95,7 @@
                                                     {{-- <img src="{{ userStore->image1 }} ? '../../foodpartners.foodgrubber.ng/public/img/products/{{ userStore->image1 }}' : '../../foodpartners.foodgrubber.ng/public/img/products/no-product-image.png'" --}}
                                                     {{-- <img src="{{ userStore->image1 }} ? 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/{{ userStore->image1 }}' : 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/no-product-image.png'" --}}
                                                     {{-- <img src="{{ userStore->image1 ? asset('market/' . userStore->image1) : asset('market/no-product-image.png') }}" --}}
+                                                    {{ env('PARTNER_URL') . '/file/get/' . $storeProduct->image1 }}
                                                     <img src="{{ asset('market/default_product_image.webp') }}"
                                                         alt="Product image" class="product-image"
                                                         style="width: 100%; height: auto; object-fit: cover;">
@@ -109,7 +109,6 @@
                                                     <a href="#" class="text-dark">{{ $storeProduct->name }}</a>
                                                 </h5>
                                                 <p class="product-description">
-                                                    {{-- {{ userStore->description ? Str::words(userStore->description, 5, '...') : 'No product description available' }} --}}
                                                     {{ $storeProduct->description }}
                                                 </p>
                                                 <div class="product-price mt-1 text-dark" style="font-size:15px;">

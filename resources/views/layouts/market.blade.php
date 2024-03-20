@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $pageTitle ?? 'Foodgrubber' }}</title>
+    <title>{{ $pageTitle ?? 'Foodgrubbergreen' }}</title>
     <meta content="Food Grubber" name="keywords">
     <meta content="Food Grubber" name="description">
     <!-- Favicon -->
-    {{-- <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
-    <link rel="manifest" href="assets/images/icons/site.html">
-    <link rel="mask-icon" href="assets/images/icons/safari-pinned-tab.svg" color="#666666">
-    <link rel="shortcut icon" href="assets/images/icons/favicon.ico">
-    <meta name="apple-mobile-web-app-title" content="Molla">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/icons/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/icons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/icons/favicon-16x16.png') }}">
+    {{-- <link rel="manifest" href="assets/images/icons/site.html"> --}}
+    {{-- <link rel="mask-icon" href="assets/images/icons/safari-pinned-tab.svg" color="#666666"> --}}
+    <link rel="shortcut icon" href="{{ asset('img/favicon/favicon.ico') }}">
+    {{-- <meta name="apple-mobile-web-app-title" content="Molla">
     <meta name="application-name" content="Molla">
     <meta name="msapplication-TileColor" content="#cc9966">
     <meta name="msapplication-config" content="assets/images/icons/browserconfig.xml">
@@ -90,7 +90,7 @@
                         </button>
 
                         <a href="index.html" class="logo">
-                            <img src="{{ asset('img/logo.png') }}" alt="Foodgrubber Logo" width="105"
+                            <img src="{{ asset('img/logo.png') }}" alt="Foodgrubbergreen Logo" width="105"
                                 height="25">
                         </a>
                     </div><!-- End .header-left -->
@@ -343,10 +343,11 @@
                             <div class="widget widget-about">
                                 <img src="{{ asset('img/logo.png') }}" class="footer-logo" alt="Footer Logo"
                                     width="105" height="25">
-                                <p>Foodgrubber is your one-stop shop for fresh groceries delivered. We connect you with
+                                <p>Foodgrubbergreen is your one-stop shop for fresh groceries delivered. We connect you
+                                    with
                                     local stores, a diverse selection of delicious finds, and a seamless online ordering
                                     experience. Ditch the shopping cart, browse from your phone, and enjoy convenient
-                                    delivery to your doorstep. Save time,eat well, and experience the Foodgrubber
+                                    delivery to your doorstep. Save time,eat well, and experience the Foodgrubbergreen
                                     difference.. </p>
 
                                 <div class="widget-about-info">
@@ -372,10 +373,10 @@
                                 <h4 class="widget-title">Information</h4><!-- End .widget-title -->
 
                                 <ul class="widget-list">
-                                    <li><a href="about.html">About Molla</a></li>
-                                    <li><a href="#">How to shop on Molla</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="contact.html">Contact us</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    {{-- <li><a href="#">How to shop on Molla</a></li> --}}
+                                    {{-- <li><a href="faq.html">FAQ</a></li> --}}
+                                    <li><a href="{{ route('market.contact') }}">Contact us</a></li>
                                     <li><a href="login.html">Log in</a></li>
                                 </ul><!-- End .widget-list -->
                             </div><!-- End .widget -->
@@ -390,8 +391,8 @@
                                     <li><a href="#">Money-back guarantee!</a></li>
                                     <li><a href="#">Returns</a></li>
                                     <li><a href="#">Shipping</a></li>
-                                    <li><a href="#">Terms and conditions</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="{{ route('market.terms') }}">Terms and conditions</a></li>
+                                    <li><a href="{{ route('market.privacy') }}">Privacy Policy</a></li>
                                 </ul><!-- End .widget-list -->
                             </div><!-- End .widget -->
                         </div><!-- End .col-sm-4 col-lg-3 -->
@@ -415,7 +416,7 @@
 
             <div class="footer-bottom">
                 <div class="container">
-                    <p class="footer-copyright">Copyright © 2019 Molla Store. All Rights Reserved.</p>
+                    <p class="footer-copyright">Copyright © Foodgrubbergreen. All Rights Reserved.</p>
                     <!-- End .footer-copyright -->
                     <ul class="footer-menu">
                         <li><a href="#">Terms Of Use</a></li>

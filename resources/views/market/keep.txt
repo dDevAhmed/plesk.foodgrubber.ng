@@ -3,3 +3,13 @@ email verification
 mobile menu
 footer
 
+
+---updated files
+
+search view
+marketlayout
+marketplace index view
+store view
+marketcontroller
+privacy view 
+terms view
