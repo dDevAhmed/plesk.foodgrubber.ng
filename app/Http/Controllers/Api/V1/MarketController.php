@@ -42,7 +42,6 @@ class MarketController extends Controller
         }
     }
 
-
     public function products(string $id)
     {
         $store = UserStore::with(['products' => function ($query) {
@@ -63,5 +62,26 @@ class MarketController extends Controller
     public function categories()
     {
         return response()->json(Category::select(['id', 'category', 'image'])->get());
+    }
+
+    public function search($categorySearched)
+    {
+        $categoryStores = UserStore::whereHas('products', function ($query) use ($categorySearched) {
+            $query->where('category', $categorySearched); // Assuming category_id is the actual column
+        })->where('availability', 1)->get();
+
+        $categoryCounts = [];
+        // foreach ($categories as $category) {
+        //     $count = UserStore::whereHas('products', function ($query) use ($category) {
+        //         $query->where('category', $category);
+        //     })->where('availability', 1)->count();
+        //     $categoryCounts[$category] = $count;
+        // }
+
+        return response()->json([
+            'categorySearched' => $categorySearched,
+            'categoryStores' => $categoryStores
+        ], 200);
+
     }
 }

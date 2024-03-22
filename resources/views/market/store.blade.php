@@ -12,8 +12,8 @@
                             <div class="product-gallery product-gallery-vertical">
                                 <div class="row">
                                     <figure class="product-main-image">
-                                        <img id="product-zoom" src="{{ asset('market/store_illustration.jpg') }}"
-                                            alt="product image">
+                                        <img id="product-zoom" src="{{ $store->logo }}"
+                                            alt="Store Logo" class="border">
                                     </figure><!-- End .product-main-image -->
                                 </div><!-- End .row -->
                             </div><!-- End .product-gallery -->
@@ -91,14 +91,9 @@
                                         <div class="product product-5 text-center">
                                             <figure class="product-media">
                                                 <a href="javascript:void(0)">
-                                                    {{-- <img src="http://foodpartners.foodgrubber.ng/products/{{ userStore->image1 }}" alt="Product image" class="product-image"> --}}
-                                                    {{-- <img src="{{ userStore->image1 }} ? '../../foodpartners.foodgrubber.ng/public/img/products/{{ userStore->image1 }}' : '../../foodpartners.foodgrubber.ng/public/img/products/no-product-image.png'" --}}
-                                                    {{-- <img src="{{ userStore->image1 }} ? 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/{{ userStore->image1 }}' : 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/no-product-image.png'" --}}
-                                                    {{-- <img src="{{ userStore->image1 ? asset('market/' . userStore->image1) : asset('market/no-product-image.png') }}" --}}
-                                                    {{ env('PARTNER_URL') . '/file/get/' . $storeProduct->image1 }}
-                                                    <img src="{{ asset('market/default_product_image.webp') }}"
+                                                    <img src="{{$storeProduct->image1}}"
                                                         alt="Product image" class="product-image"
-                                                        style="width: 100%; height: auto; object-fit: cover;">
+                                                        style="width: 100%; height: 250px; object-fit: cover;">
                                                 </a>
                                             </figure>
 

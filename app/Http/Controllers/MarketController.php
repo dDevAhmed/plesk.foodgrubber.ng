@@ -35,23 +35,6 @@ class MarketController extends Controller
         return view('market.store', compact('pageTitle', 'categories', 'store', 'storeProducts'));
     }
 
-    public function filterStoresByCategory(Request $request, $category)
-    {
-        // Validate the category slug
-        $request->validate([
-            'category' => 'required|string|exists:categories,slug' // Adjust based on your category table
-        ]);
-
-        // Fetch stores with products in the specified category
-        $categorystores = UserStore::whereHas('products', function ($query) use ($category) {
-            $query->whereHas('categories', function ($query) use ($category) {
-                $query->where('slug', $category); // Adjust for your category field name
-            });
-        })->paginate(10); // Adjust pagination as needed
-
-        return view('search', compact('stores', 'category'));
-    }
-
     public function search($categorySearched)
     {
         $pageTitle = 'Search | Foodgrubber';

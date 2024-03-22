@@ -7,16 +7,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">
-                        {{-- <h5>Searched for: {{ $category }}</h5> --}}
                         <h5>Stores selling <span
                                 style="background-color: var(--foodgrubber-tertiary-color); color: var(--foodgrubber-primary-color); padding: 3px 8px; border-radius: 0px;">{{ $categorySearched }}</span>
                         </h5>
-                        <div class="toolbox">
+                        <hr>
+                        {{-- <div class="toolbox">
                             <div class="toolbox-left">
                                 <div class="toolbox-info">
                                     Showing <span>9 of 56</span> Products
-                                </div><!-- End .toolbox-info -->
-                            </div><!-- End .toolbox-left -->
+                                </div>
+                            </div>
 
                             <div class="toolbox-right">
                                 <div class="toolbox-sort">
@@ -29,8 +29,8 @@
                                         </select>
                                     </div>
                                 </div><!-- End .toolbox-sort -->
-                            </div><!-- End .toolbox-right -->
-                        </div><!-- End .toolbox -->
+                            </div>
+                        </div> --}}
 
                         <div class="products mb-3">
                             @if ($categoryStores->count() > 0)
@@ -40,8 +40,8 @@
                                             <div class="product product-7 text-center border">
                                                 <figure class="product-media">
                                                     <a href="product.html">
-                                                        <img src="{{ asset('market/store_illustration.jpg') }}"
-                                                            alt="Product image" class="product-image">
+                                                        <img src="{{ $userStore->logo }}"
+                                                            alt="Store Logo" class="product-image">
                                                     </a>
                                                 </figure>
 
@@ -100,11 +100,11 @@
                     </div><!-- End .col-lg-9 -->
                     <aside class="col-lg-3 order-lg-first">
                         <div class="sidebar sidebar-shop">
-                            <div class="widget widget-clean">
+                            {{-- <div class="widget widget-clean">
                                 <label>Filters:</label>
                                 <a href="#" class="sidebar-filter-clear text-secondary">Clean All <i
                                         class="icon-close"></i></a>
-                            </div><!-- End .widget widget-clean -->
+                            </div> --}}
 
                             <div class="widget widget-collapsible">
                                 <h3 class="widget-title">
@@ -120,21 +120,25 @@
 
                                             @foreach ($categories as $category)
                                                 <div class="filter-item">
-                                                    <a href="{{ route('market.search', ['category' => $category]) }}">
-                                                        <div class="custom-control custom-radio">
-                                                            <input type="radio" id="cat-{{ $loop->index }}"
+                                                    {{-- <a href="{{ route('market.search', ['category' => $category]) }}"> --}}
+                                                    <div class="custom-control custom-radio">
+                                                        <a href="{{ route('market.search', ['category' => $category]) }}"
+                                                            class="text-dark">{{ $category }}</a>
+                                                        {{-- <input type="radio" id="cat-{{ $loop->index }}"
                                                                 name="category" value="{{ $category }}"
                                                                 class="custom-control-input">
                                                             <label class="custom-control-label"
-                                                                for="cat-{{ $loop->index }}">{{ $category }}</label>
-                                                        </div><span class="item-count">
+                                                                for="cat-{{ $loop->index }}">{{ $category }}</label> --}}
+
+                                                        {{-- <span class="item-count">
                                                             @if (isset($categoryCounts[$category]))
                                                                 {{ $categoryCounts[$category] }}
                                                             @else
                                                                 0
                                                             @endif
-                                                        </span>
-                                                    </a>
+                                                        </span> --}}
+                                                    </div>
+                                                    {{-- </a> --}}
                                                 </div>
                                             @endforeach
 

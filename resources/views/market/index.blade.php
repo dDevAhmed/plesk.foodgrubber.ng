@@ -271,15 +271,12 @@
                             <div class="col-6 col-md-4 col-lg-3 col-xl-3">
                                 <div class="product product-5 text-center">
                                     <figure class="product-media">
-                                        {{-- <a href="{{ url('product/' . $userStore->id) }}"> --}}
-                                        <a href="javascript:void(0)">
-                                            {{-- <img src="http://foodpartners.foodgrubber.ng/products/{{ userStore->image1 }}" alt="Product image" class="product-image"> --}}
-                                            {{-- <img src="{{ $userStore->image1 }} ? '../../foodpartners.foodgrubber.ng/public/img/products/{{ $userStore->image1 }}' : '../../foodpartners.foodgrubber.ng/public/img/products/no-product-image.png'" --}}
-                                            {{-- <img src="{{ $userStore->image1 }} ? 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/{{ $userStore->image1 }}' : 'http://77.68.48.210/plesk-site-preview/test.foodpartners.foodgrubber.ng/https/77.68.48.210/public/img/products/no-product-image.png'" --}}
-                                            {{-- <img src="{{ $userStore->image1 ? asset('market/' . $userStore->image1) : asset('market/no-product-image.png') }}" --}}
-                                            <img src="{{ asset('market/default_store_logo.jpg') }}"
-                                                alt="Product image" class="product-image"
+                                        {{-- <a href="javascript:void(0)"> --}}
+                                        <a href="{{ route('market.stores.store', $userStore->id) }}">
+                                            <img src="{{ $userStore->logo }}" alt="Store Logo" class="product-image"
                                                 style="width: 100%; height: auto; object-fit: cover;">
+                                            {{-- <img src="{{ $userStore->logo }} ? {{ $userStore->logo }} : {{ asset('market/default_store_logo.jpg') }}" alt="Store Logo" class="product-image"
+                                                style="width: 100%; height: auto; object-fit: cover;"> --}}
                                         </a>
                                     </figure>
 

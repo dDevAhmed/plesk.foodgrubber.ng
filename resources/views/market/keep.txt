@@ -13,3 +13,4 @@ store view
 marketcontroller
 privacy view 
 terms view
+api\v1\marketcontroller
