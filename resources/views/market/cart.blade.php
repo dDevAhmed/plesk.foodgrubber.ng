@@ -36,7 +36,7 @@
                                                     <div class="product">
                                                         <figure class="product-media">
                                                             <a href="#">
-                                                                <img src="assets/images/products/table/product-1.jpg"
+                                                                <img src="{{$cartItem->image}}"
                                                                     alt="Product image">
                                                             </a>
                                                         </figure>
